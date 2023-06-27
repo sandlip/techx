@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+  .tiny-text {
+    @apply text-sm sm:text-xs font-semibold
+  }
+  
+  .massive-text {
+    @apply text-7xl sm:text-9xl font-medium
+  }
+  
+  .subHeading-text {
+    @apply text-5xl font-medium
+  }
+  
+  .parent-size {
+    @apply w-full max-w-7xl mx-auto px-4
+  }
+
+  .link-text {
+    @apply text-[#003380] underline
+  }
+
+  .gradient-overlay {
+    @apply bg-gradient-to-br from-[#003380]/60 via-[#003380]/60 to-[#3fff00]/80
+  }
+}
