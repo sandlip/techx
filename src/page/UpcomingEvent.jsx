@@ -9,22 +9,47 @@ const UpcomingEvent = () => {
       
       <div className='overflow-hidden'>
         <section className='w-full h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
-          <div className='absolute top-0 w-full h-full gradient-overlay flex items-center'>
-            
-            <section className="font-bold text-white bg-black/60 px-4 sm:px-12 py-10 w-full max-w-xl mx-auto text-center space-y-6">
-              <h1 className="subHeading-text font-bold w-full max-w-sm mx-auto">TECH eXperience</h1>
+          <div className='absolute top-0 w-full h-full gradient-overlay flex justify-center items-center'>
+            <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
 
-              <div className="space-y-3">
-                <div className="bg-white rounded-sm py-1">
-                  <h2 className="bg-gradient-to-r from-[#3fff00] to-[#003380] text-transparent bg-clip-text">July 29, 2023</h2>
-                </div>
-
-                <h2 className="text-6xl">Taraba</h2>
+              <div className="text-center subHeading-text">
+                <h1 className="">TECH eXperience</h1>
+                <h1 className="">Taraba</h1>
               </div>
-            </section>
 
+              <div className="grid grid-cols-12 sm:gap-x-4 gap-y-4 max-w-2xl mx-auto">
+
+                <section className="col-span-12 sm:col-span-6 bg-black/60 sm:py-10 px-5 py-4">
+                  <div className="flex gap-6">
+                    <i className="bi bi-calendar3 gradient-text font-bold text-4xl"></i>
+                    <div className="">
+                      <h2 className="">July 29, 2023</h2>
+                      <h2 className="">10:00AM</h2>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="col-span-12 sm:col-span-6 bg-black/60 sm:py-6 px-5 py-4">
+                  <div className="flex gap-6 ">
+                    <i className="bi bi-geo-alt-fill gradient-text font-bold text-4xl"></i>
+                    <div className="">
+                      <h2 className="">Sandlip Digital Consulting</h2>
+                      <h2 className="">mayo Dassa, Jalingo</h2>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+
+              <div className="flex justify-center">
+                <a href='/' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
+              </div>
+
+            </section>
           </div>
         </section>
+
+      
 
         <section className="py-24 relative parent-size grid grid-cols-12 gap-y-10 sm:gap-y-20">
           <aside className="col-span-12 sm:col-span-7 relative">
