@@ -2,7 +2,7 @@ import NavBar from "../components/Navbar"
 
 
 
-const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry }) => {
+const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsSubmitting }) => {
 
 
 
@@ -63,7 +63,7 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry }) => {
           </div>
           
           <div className="text-right">
-            <button className="bg-[#003380] text-white py-3 px-8 rounded" onClick={postNewEntry}>Reserve Spot</button>
+            <button className={`bg-[#003380] text-white py-3 px-8 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={postNewEntry}>Reserve Spot</button>
           </div>
         </section>
 
