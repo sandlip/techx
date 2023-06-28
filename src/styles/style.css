@@ -14,11 +14,11 @@
   }
   
   .subHeading-text {
-    @apply text-5xl font-medium
+    @apply sm:text-7xl text-6xl font-bold
   }
   
   .parent-size {
-    @apply w-full max-w-7xl mx-auto px-4
+    @apply w-full max-w-6xl mx-auto px-4
   }
 
   .link-text {
@@ -27,5 +27,9 @@
 
   .gradient-overlay {
     @apply bg-gradient-to-br from-[#003380]/60 via-[#003380]/60 to-[#3fff00]/80
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-b from-[#3fff00] to-[#003380] text-transparent bg-clip-text
   }
 }

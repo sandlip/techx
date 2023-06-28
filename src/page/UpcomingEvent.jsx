@@ -3,7 +3,7 @@ import React from 'react';
 
 const UpcomingEvent = () => {
   return (
-    <div className='space-y-20 overflow-hidden'>
+    <div className='overflow-hidden'>
       <section className='w-full h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
         <div className='absolute top-0 w-full h-full gradient-overlay flex items-center'>
           
@@ -22,41 +22,44 @@ const UpcomingEvent = () => {
         </div>
       </section>
 
-      <section className="py-5 space-y-5 sm:space-y-20 relative">
-        <div className="grid grid-cols-12 text-base">
-          <div className="col-span-12 sm:col-span-6 max-w-lg mx-auto">
-            <img src="/img/joinUs.jpg" alt="" className="sm:rounded-md" />
-            <div className="absolute top-3 left-2 sm:top-3 sm:left-40 shadow-lg rounded-md bg-white px-5 pb-3">
-              <h2 className="bg-gradient-to-b from-[#3fff00] to-[#003380] text-transparent bg-clip-text font-bold text-7xl">1</h2>
-              <h2 className="">impactful Day</h2> 
-            </div>
-          </div>
+      <section className="py-24 relative parent-size grid grid-cols-12 gap-y-10 sm:gap-y-20">
+        <aside className="col-span-12 sm:col-span-7 relative">
+          <img src="/img/joinUs.jpg" alt="" className="rounded-md w-full max-w-xl" />
 
-          <div className="col-span-12 sm:col-span-6 p-2 sm:max-w-lg sm:mx-auto">
-            <h2 className="sm:text-6xl font-bold">Be A Part Of The Taraba Tech Expose 2023</h2>
+          <div className="absolute top-0 w-full max-w-xl h-full bg-black/25 rounded-md"></div>
+
+          <div className="absolute -top-6 left-4 shadow-top sm:w-[12rem] rounded-md bg-white px-5 pb-3 font-bold">
+            <h6 className="gradient-text text-7xl">1</h6>
+            <h6 className="text-base">Impactful Day</h6> 
           </div>
-        </div>
+        </aside>
+
+        <aside className="col-span-12 sm:col-span-5 p-2">
+          <h2 className="subHeading-text">Join Tech eXperience Taraba</h2>
+          <h2 className="subHeading-text">2023</h2>
+        </aside>
         
-        <div className="grid grid-cols-12 text-base">
-          <div className="col-span-12 sm:col-span-6 space-y-5 sm:space-y-28 max-w-lg mx-auto p-2 sm:p-0">
-            <h2 className="text-lg">
-              Connect with like-minded individuals, professionals, and community leaders. This event offers a platform for meaningful conversations and collaborations, fostering a stronger and more vibrant community. Don't miss out on this incredible event! Mark your calendars, spread the word, and get ready to join us for a day of connection, celebration, and community building. We can't wait to see you there!
-            </h2>
 
-            <button className="flex justify-center items-center bg-gradient-to-r from-[#3fff00] to-[#003380] p-3 rounded-md text-white">Reserve Your Spot</button>
+        <aside className="col-span-12 sm:col-span-7 flex flex-col gap-y-14 sm:gap-y-0 order-4 sm:order-3 mt-14 sm:mt-0">
+          <article className="sm:flex-1 w-full max-w-xl">
+            Connect with like-minded individuals, professionals, and community leaders. This event offers a platform for meaningful conversations and collaborations, fostering a stronger and more vibrant community. Don't miss out on this incredible event! Mark your calendars, spread the word, and get ready to join us for a day of connection, celebration, and community building. We can't wait to see you there!
+          </article>
+
+          <div className="">
+            <a href='/' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
           </div>
+        </aside>
 
-          <div className="col-span-12 sm:col-span-6 relative max-w-lg mx-auto">
-            <img src="/img/joinUs.jpg" alt="" className="sm:rounded-md" />
+        <aside className="col-span-12 sm:col-span-5 relative max-w-sm mx-auto order-3 sm:order-4">
+          <img src="/img/joinUs.jpg" alt="" className="sm:rounded-md" />
 
-            <div className="absolute bottom-0 left-1/2 shadow-2xl rounded-md bg-white px-5">
-              <h2 className="bg-gradient-to-b from-[#3fff00] to-[#003380] text-transparent bg-clip-text font-bold text-7xl">3</h2>
-              <h2 className="">Experienced Speakers</h2> 
-            </div>
+          <div className="absolute -bottom-6 right-4 shadow-2xl rounded-md bg-white pb-3 px-5 font-bold">
+            <h6 className="gradient-text text-7xl">3</h6>
+            <h6 className="text-base mt-2">Experienced Speakers</h6> 
           </div>
-        </div>
+        </aside>
       </section>
-   </div>
+    </div>
   )
 }
 
