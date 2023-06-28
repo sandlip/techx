@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -15,21 +15,21 @@ const MySwal = withReactContent(Swal)
 
 function App() {
   const [registrantInfo, setRegistrantInfo] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     expectation: "",
   })
 
 
-  useEffect(() => {
-    // showSWAL('Your spot is reserved!')
-  }, [])
 
   
 
 
   const postNewEntry = async () => {
+    const userInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
+    
     await axios.get(process.env.REACT_APP_DB_URL)
     .then(participants => {
       const attendeeExists = checkIfAttendeeExists(participants.data.attendees)
@@ -48,6 +48,7 @@ function App() {
 
       axios.post(process.env.REACT_APP_DB_URL, { registrantInfo })
       .then(response => {
+        showSWAL('Your spot is reserved!')
       })
       .catch(postEntryError => {
       })
@@ -62,13 +63,13 @@ function App() {
 
 
   const checkIfAttendeeExists = (arrayToLoop) => {
-    const attendeeNameExists = arrayToLoop.find(({ Name }) => Name === registrantInfo.name);
+    const attendeeNameExists = arrayToLoop.find(({ Name }) => Name === `${registrantInfo.firstName} ${registrantInfo.lastName}`);
     const attendeeEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
     const attendeePhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
 
 
     if (attendeeNameExists) {
-      return { value:true, message: `${registrantInfo.name} is already registed as an attendee`}
+      return { value:true, message: `${registrantInfo.firstName} ${registrantInfo.lastName} is already registed as an attendee`}
     } else if (attendeeEmailExists) {
       return { value:true, message: `${registrantInfo.email} is already registed to an attendee`}
     } else if (attendeePhoneExists) {
@@ -83,13 +84,13 @@ function App() {
 
 
   const checkIfSponsorExists = (arrayToLoop) => {
-    const sponsorNameExists = arrayToLoop.find(({ Name }) => Name === registrantInfo.name);
+    const sponsorNameExists = arrayToLoop.find(({ Name }) => Name === `${registrantInfo.firstName} ${registrantInfo.lastName}`);
     const sponsorEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
     const sponsorPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
 
 
     if (sponsorNameExists) {
-      return { value:true, message: `${registrantInfo.name} is already registed as a sponsor`}
+      return { value:true, message: `${registrantInfo.firstName} ${registrantInfo.lastName} is already registed as a sponsor`}
     } else if (sponsorEmailExists) {
       return { value:true, message: `${registrantInfo.email} is already registed to a sponsor`}
     } else if (sponsorPhoneExists) {
@@ -145,6 +146,7 @@ function App() {
             element={<RegisterPage
               registrantInfo={registrantInfo}
               setRegistrantInfo={setRegistrantInfo}
+              postNewEntry={postNewEntry}
             />}
           />
 
