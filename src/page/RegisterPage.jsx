@@ -1,4 +1,4 @@
-import NavBar from "../components/Navbar"
+
 
 
 
@@ -22,101 +22,98 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsS
 
 
   return (
-    <>
-      <NavBar />
+    <div className="sm:min-h-screen space-y-6 py-6">
+      <section className="min-h-screen sm:min-h-fit flex items-center justify-center px-4">
+        <div className="w-full max-w-lg mx-auto border border-gray-300 rounded-lg shadow-lg py-10 sm:px-8 px-4 font-medium space-y-6">
+          <div className="w-fit mx-auto">
+            <a href="/" className=""> <img src="/img/logo/logo-black.png" alt="SANDLIP" className="h-6" /> </a>
+          </div>
 
-      <div className="min-h-screen flex items-center justify-center px-4 py-24">
-        <section className="w-full max-w-xl mx-auto border border-gray-300 rounded-lg shadow-lg py-10 sm:px-8 px-4 font-medium space-y-6">
-          <div className="">
-            <input type="text" name="firstName" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="First Name"
+          <aside className="relative">
+            <input type="text" name="firstName"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-300 rounded py-2 px-3 w-full`}
+              placeholder="First Name"
               value={registrantInfo.firstName}
               onChange={updateField}
             />
-            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
-          </div>
+
+            <label htmlFor=""
+              className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
+              peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+              peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+            >First Name</label>
+          </aside>
           
-          <div className="">
-            <input type="text" name="lastName" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Last Name"
+          <aside className="relative">
+            <input type="text" name="lastName"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-300 rounded py-2 px-3 w-full`}
+              placeholder="Last Name"
               value={registrantInfo.lastName}
               onChange={updateField}
             />
-            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
-          </div>
+
+            <label htmlFor=""
+              className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
+              peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+              peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+            >Last Name</label>
+          </aside>
           
-          <div className="">
-            <input type="email" name="email" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Email"
+          <aside className="relative">
+            <input type="email" name="email"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-300 rounded py-2 px-3 w-full`}
+              placeholder="Email"
               value={registrantInfo.email}
               onChange={updateField}
             />
-            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
-          </div>
+
+            <label htmlFor=""
+              className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
+              peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+              peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+            >Email</label>
+          </aside>
           
-          <div className="">
-            <input type="text" name="phone" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Phone"
+          <aside className="relative">
+            <input type="text" name="phone"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-300 rounded py-2 px-3 w-full`}
+              placeholder="Phone"
               value={registrantInfo.phone}
               onChange={updateField}
             />
-            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
-          </div>
+
+            <label htmlFor=""
+              className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
+              peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+              peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+            >Phone</label>
+          </aside>
           
-          <div className="">
-            <textarea name="expectation" rows="3" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Expectation"
+          <aside className="relative">
+            <textarea name="expectation" rows="2"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-300 rounded py-2 px-3 w-full`}
+              placeholder="Expectation"
               value={registrantInfo.expectation}
               onChange={updateField}
             ></textarea>
-            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
-          </div>
-          
-          <div className="text-right">
-            <button className={`bg-[#003380] text-white py-3 px-8 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={postNewEntry}>Reserve Spot</button>
-          </div>
-        </section>
 
+            <label htmlFor=""
+              className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
+              peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+              peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+            >Expectation</label>
+          </aside>
+          
+          <aside className="text-right">
+            <button className={`bg-[#003380] text-white text-base py-2.5 px-6 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={postNewEntry}>Reserve Spot</button>
+          </aside>
+        </div>
+      </section>
 
-
-        {/* <section className="w-full max-w-3xl mx-auto bg-gray-100 shadow-lg py-10 sm:px-8 px-4 font-medium space-y-4">
-          <div className="flex items-center bg-gray-50 w-full">
-            <div className="bg-white py-3 text-center w-1/3 sm:w-3/12 shadow-md rounded-r-full">First Name</div>
-            <input type="text" name="firstName" className="focus:outline-none bg-gr-50 gray-300 rounded-3 px-4 w-2/3 sm:w-9/12" placeholder=""
-              value={registrantInfo.firstName}
-              onChange={updateField}
-            />
-          </div>
-          
-          <div className="flex items-center bg-gray-50 w-full">
-            <div className="bg-white py-3 text-center w-1/3 sm:w-3/12 shadow-md rounded-r-full">Last Name</div>
-            <input type="text" name="lastName" className="focus:outline-none bg-gr-50 gray-300 rounded-3 px-4 w-2/3 sm:w-9/12" placeholder=""
-              value={registrantInfo.lastName}
-              onChange={updateField}
-            />
-          </div>
-          
-          <div className="flex items-center bg-gray-50 w-full">
-            <div className="bg-white py-3 text-center w-1/3 sm:w-3/12 shadow-md rounded-r-full">Email</div>
-            <input type="email" name="email" className="focus:outline-none bg-gr-50 gray-300 rounded-3 px-4 w-2/3 sm:w-9/12" placeholder=""
-              value={registrantInfo.email}
-              onChange={updateField}
-            />
-          </div>
-          
-          <div className="flex items-center bg-gray-50 w-full">
-            <div className="bg-white py-3 text-center w-1/3 sm:w-3/12 shadow-md rounded-r-full">Phone</div>
-            <input type="text" name="phone" className="focus:outline-none bg-gr-50 gray-300 rounded-3 px-4 w-2/3 sm:w-9/12" placeholder=""
-              value={registrantInfo.phone}
-              onChange={updateField}
-            />
-          </div>
-          
-          <div className="flex items-center bg-gray-50 w-full">
-            <div className="bg-white py-8 text-center w-1/3 sm:w-3/12 shadow-md rounded-r-full">Expectations</div>
-            <textarea name="expectation" rows="3" className="focus:outline-none bg-gr-50 gray-300 rounded-3 px-4 w-2/3 sm:w-9/12" placeholder=""
-              value={registrantInfo.expectation}
-              onChange={updateField}
-            ></textarea>
-          </div>
-        </section> */}
-      </div>
-    </>
+      <section className="text-center text-sm">
+        &copy; {new Date().getFullYear()} - <a href="https://sandlip.com" target="_blank" rel="noreferrer" className="underline underline-offset-2">Sandlip Digital Consulting</a>
+      </section>
+    </div>
   )
 }
 

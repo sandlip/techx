@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-import Footer from './components/Footer';
 import LandingPage from './page/LandingPage';
 import UpcomingEvent from './page/UpcomingEvent';
 import RegisterPage from "./page/RegisterPage";
@@ -28,7 +27,8 @@ function App() {
   
 
 
-  const postNewEntry = async () => {
+  const postNewEntry = async (e) => {
+    e.preventDefault()
     setFormIsSubmitting(true)
 
     const userInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
@@ -154,7 +154,7 @@ function App() {
 
 
   return (
-    <div className="text-xl">
+    <div className="text-lg">
       <BrowserRouter>
         <Routes>
           
@@ -180,8 +180,6 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-
-      <Footer />
     </div>
   );
 }
