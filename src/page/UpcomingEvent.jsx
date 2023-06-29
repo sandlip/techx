@@ -8,16 +8,43 @@ const UpcomingEvent = () => {
       <NavBar />
       
       <div className='overflow-hidden'>
-        <section className='w-full h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
-          <div className='absolute top-0 w-full h-full gradient-overlay flex justify-center items-center'>
-            <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-20 sm:space-y-16">
-              <div className="space-y-6">
-                <div className="sm:text-center subHeading-text">
-                  <h1 className="">TECH eXperience</h1>
+        <section className='w-screen h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
+          <div className='absolute top-0 w-full h-screen bg-black/80 flex items-center'>
+            <section className="parent-size text-white px-4 flex flex-col gap-y-20 sm:gap-y-16">
+              <div className="flex flex-col space-y-10">
+                <div className="subHeading-text">
+                  <h1 className="sm:text-8xl">TECH eXperience</h1>
                   <h1 className="">Taraba</h1>
                 </div>
 
-                <div className="flex flex-row sm:items-center sm:justify-center sm:gap-x-10 gap-x-5">
+                <div className="flex-1 flex">
+                  <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-2.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
+                </div>
+              </div>
+
+              <div className="flex items-end sm:gap-x-10 gap-x-5">
+                <section className="flex items-center gap-x-2 text-base">
+                  <div className="border h-7 w-7 flex items-center justify-center rounded-full"> <i className="text-sm bi bi-calendar3"></i> </div>
+                  <h2 className="font-medium">July 29, 2023</h2>
+                </section>
+
+                <section className="flex items-center gap-x-2 text-base">
+                  <div className="border h-7 w-7 flex items-center justify-center rounded-full"> <i className="text-sm bi bi-geo-alt-fill"></i> </div>
+                  <h2 className="font-medium">TBD</h2>
+                </section>
+              </div>
+            </section>
+
+
+
+            {/* <section className="text-white px-4 space-y-20 sm:space-y-16 parent-size">
+              <div className="space-y-6">
+                <div className="subHeading-text">
+                  <h1 className="text-8xl">TECH eXperience</h1>
+                  <h1 className="">Taraba</h1>
+                </div>
+
+                <div className="flex flex-row sm:items-center sm:gap-x-10 gap-x-5">
                   <section className="flex items-center gap-x-2 text-base">
                     <div className="border h-8 w-8 flex items-center justify-center rounded-full"> <i className="text-lg bi bi-calendar3"></i> </div>
                     <h2 className="font-medium">July 29, 2023</h2>
@@ -30,10 +57,10 @@ const UpcomingEvent = () => {
                 </div>
               </div>
 
-              <div className="flex sm:justify-center">
+              <div className="flex">
                 <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-2.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
               </div>
-            </section>
+            </section> */}
 
 
             {/* <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
