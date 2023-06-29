@@ -9,20 +9,21 @@ const UpcomingEvent = () => {
       
       <div className='overflow-hidden'>
         <section className='w-screen h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
-          <div className='absolute top-0 w-full h-screen bg-black/80 flex items-center'>
-            <section className="parent-size text-white px-4 flex flex-col gap-y-20 sm:gap-y-16">
-              <div className="flex flex-col space-y-10">
+          <div className='absolute top-0 w-full h-screen bg-black/70 text-white flex items-center'>
+
+            <section className="parent-size space-y-20 sm:space-y-16">
+              <div className="space-y-16">
                 <div className="subHeading-text">
                   <h1 className="sm:text-8xl">TECH eXperience</h1>
                   <h1 className="">Taraba</h1>
                 </div>
 
-                <div className="flex-1 flex">
-                  <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-2.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
+                <div className="">
+                  <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-3.5 rounded-md text-base text-white font-medium">Reserve Your Spot</a>
                 </div>
               </div>
 
-              <div className="flex items-end sm:gap-x-10 gap-x-5">
+              <div className="flex items-center sm:gap-x-10 gap-x-5">
                 <section className="flex items-center gap-x-2 text-base">
                   <div className="border h-7 w-7 flex items-center justify-center rounded-full"> <i className="text-sm bi bi-calendar3"></i> </div>
                   <h2 className="font-medium">July 29, 2023</h2>
@@ -34,96 +35,6 @@ const UpcomingEvent = () => {
                 </section>
               </div>
             </section>
-
-
-
-            {/* <section className="text-white px-4 space-y-20 sm:space-y-16 parent-size">
-              <div className="space-y-6">
-                <div className="subHeading-text">
-                  <h1 className="text-8xl">TECH eXperience</h1>
-                  <h1 className="">Taraba</h1>
-                </div>
-
-                <div className="flex flex-row sm:items-center sm:gap-x-10 gap-x-5">
-                  <section className="flex items-center gap-x-2 text-base">
-                    <div className="border h-8 w-8 flex items-center justify-center rounded-full"> <i className="text-lg bi bi-calendar3"></i> </div>
-                    <h2 className="font-medium">July 29, 2023</h2>
-                  </section>
-
-                  <section className="flex items-center gap-x-2 text-base">
-                    <div className="border h-8 w-8 flex items-center justify-center rounded-full"> <i className="text-lg bi bi-geo-alt-fill"></i> </div>
-                    <h2 className="font-medium">Jalingo, Taraba</h2>
-                  </section>
-                </div>
-              </div>
-
-              <div className="flex">
-                <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-2.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
-              </div>
-            </section> */}
-
-
-            {/* <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
-              <div className="text-center subHeading-text">
-                <h1 className="">TECH eXperience</h1>
-                <h1 className="">Taraba</h1>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-x-10 gap-y-4">
-                <section className="flex items-center gap-x-4">
-                  <div className="border h-10 w-10 flex items-center justify-center rounded-full"> <i className="bi bi-calendar3"></i> </div>
-                  <h2 className="font-medium">July 29, 2023</h2>
-                </section>
-
-                <section className="flex items-center gap-x-4">
-                  <div className="border h-10 w-10 flex items-center justify-center rounded-full"> <i className="bi bi-geo-alt-fill"></i> </div>
-                  <h2 className="font-medium">Jalingo, Taraba</h2>
-                </section>
-              </div>
-
-              <div className="flex justify-center">
-                <a href='/register' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
-              </div>
-            </section> */}
-
-
-
-            {/* <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
-
-              <div className="text-center subHeading-text">
-                <h1 className="">TECH eXperience</h1>
-                <h1 className="">Taraba</h1>
-              </div>
-
-              <div className="grid grid-cols-12 sm:gap-x-4 gap-y-4 max-w-2xl mx-auto">
-
-                <section className="col-span-12 sm:col-span-6 bg-black/60 sm:py-10 px-5 py-4">
-                  <div className="flex gap-6">
-                    <i className="bi bi-calendar3 gradient-text font-bold text-4xl"></i>
-                    <div className="">
-                      <h2 className="">July 29, 2023</h2>
-                      <h2 className="">10:00AM</h2>
-                    </div>
-                  </div>
-                </section>
-
-                <section className="col-span-12 sm:col-span-6 bg-black/60 sm:py-6 px-5 py-4">
-                  <div className="flex gap-6 ">
-                    <i className="bi bi-geo-alt-fill gradient-text font-bold text-4xl"></i>
-                    <div className="">
-                      <h2 className="">Sandlip Digital Consulting</h2>
-                      <h2 className="">mayo Dassa, Jalingo</h2>
-                    </div>
-                  </div>
-                </section>
-
-              </div>
-
-              <div className="flex justify-center">
-                <a href='/register' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
-              </div>
-
-            </section> */}
           </div>
         </section>
 
