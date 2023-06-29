@@ -28,38 +28,43 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsS
       <div className="min-h-screen flex items-center justify-center px-4 py-24">
         <section className="w-full max-w-xl mx-auto border border-gray-300 rounded-lg shadow-lg py-10 sm:px-8 px-4 font-medium space-y-6">
           <div className="">
-            <input type="text" name="firstName" className="focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full" placeholder="First Name"
+            <input type="text" name="firstName" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="First Name"
               value={registrantInfo.firstName}
               onChange={updateField}
             />
+            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
           </div>
           
           <div className="">
-            <input type="text" name="lastName" className="focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full" placeholder="Last Name"
+            <input type="text" name="lastName" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Last Name"
               value={registrantInfo.lastName}
               onChange={updateField}
             />
+            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
           </div>
           
           <div className="">
-            <input type="email" name="email" className="focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full" placeholder="Email"
+            <input type="email" name="email" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Email"
               value={registrantInfo.email}
               onChange={updateField}
             />
+            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
           </div>
           
           <div className="">
-            <input type="text" name="phone" className="focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full" placeholder="Phone"
+            <input type="text" name="phone" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Phone"
               value={registrantInfo.phone}
               onChange={updateField}
             />
+            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
           </div>
           
           <div className="">
-            <textarea name="expectation" rows="3" className="focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full" placeholder="Expectation"
+            <textarea name="expectation" rows="3" className={`focus:outline-[#003380] border border-gray-300 rounded py-3 px-4 w-full`} placeholder="Expectation"
               value={registrantInfo.expectation}
               onChange={updateField}
             ></textarea>
+            {/* <p className={`text-xs text-red-600 h-4 overflow-hidden`}>Error message</p> */}
           </div>
           
           <div className="text-right">

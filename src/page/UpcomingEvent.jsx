@@ -10,7 +10,58 @@ const UpcomingEvent = () => {
       <div className='overflow-hidden'>
         <section className='w-full h-screen relative' style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
           <div className='absolute top-0 w-full h-full gradient-overlay flex justify-center items-center'>
-            <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
+            <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-20 sm:space-y-16">
+              <div className="space-y-6">
+                <div className="sm:text-center subHeading-text">
+                  <h1 className="">TECH eXperience</h1>
+                  <h1 className="">Taraba</h1>
+                </div>
+
+                <div className="flex flex-row sm:items-center sm:justify-center sm:gap-x-10 gap-x-5">
+                  <section className="flex items-center gap-x-2 text-base">
+                    <div className="border h-8 w-8 flex items-center justify-center rounded-full"> <i className="text-lg bi bi-calendar3"></i> </div>
+                    <h2 className="font-medium">July 29, 2023</h2>
+                  </section>
+
+                  <section className="flex items-center gap-x-2 text-base">
+                    <div className="border h-8 w-8 flex items-center justify-center rounded-full"> <i className="text-lg bi bi-geo-alt-fill"></i> </div>
+                    <h2 className="font-medium">Jalingo, Taraba</h2>
+                  </section>
+                </div>
+              </div>
+
+              <div className="flex sm:justify-center">
+                <a href='/register' className="bg-[#FE7A67] py-3 px-4 sm:py-2.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
+              </div>
+            </section>
+
+
+            {/* <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
+              <div className="text-center subHeading-text">
+                <h1 className="">TECH eXperience</h1>
+                <h1 className="">Taraba</h1>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-x-10 gap-y-4">
+                <section className="flex items-center gap-x-4">
+                  <div className="border h-10 w-10 flex items-center justify-center rounded-full"> <i className="bi bi-calendar3"></i> </div>
+                  <h2 className="font-medium">July 29, 2023</h2>
+                </section>
+
+                <section className="flex items-center gap-x-4">
+                  <div className="border h-10 w-10 flex items-center justify-center rounded-full"> <i className="bi bi-geo-alt-fill"></i> </div>
+                  <h2 className="font-medium">Jalingo, Taraba</h2>
+                </section>
+              </div>
+
+              <div className="flex justify-center">
+                <a href='/register' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
+              </div>
+            </section> */}
+
+
+
+            {/* <section className="text-white px-4 sm:px-12 w-full max-w-6xl space-y-8 sm:space-y-12">
 
               <div className="text-center subHeading-text">
                 <h1 className="">TECH eXperience</h1>
@@ -42,10 +93,10 @@ const UpcomingEvent = () => {
               </div>
 
               <div className="flex justify-center">
-                <a href='/' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
+                <a href='/register' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
               </div>
 
-            </section>
+            </section> */}
           </div>
         </section>
 
@@ -75,7 +126,7 @@ const UpcomingEvent = () => {
             </article>
 
             <div className="">
-              <a href='/' className="bg-gradient-to-r from-[#3fff00] via-[#003380] to-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-white font-medium">Reserve Your Spot</a>
+              <a href='/register' className="bg-[#003380] py-4 px-6 sm:py-3.5 rounded-md text-lg text-white font-medium">Reserve Your Spot</a>
             </div>
           </aside>
 

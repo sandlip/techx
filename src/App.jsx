@@ -32,6 +32,20 @@ function App() {
     setFormIsSubmitting(true)
 
     const userInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
+
+    if (!registrantInfo.firstName) {
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: "Please provide first name", color: "#000000", confirmButtonColor: "#003380" })
+        return
+    } else if (!registrantInfo.lastName) {
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: "Please provide last name", color: "#000000", confirmButtonColor: "#003380" })
+        return
+    } else if (!registrantInfo.phone) {
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: "Please provide your phone number", color: "#000000", confirmButtonColor: "#003380" })
+        return
+    }
     
 
     await axios.get(process.env.REACT_APP_DB_URL)
@@ -40,12 +54,14 @@ function App() {
       const sponsorExists = checkIfSponsorExists(participants.data.sponsors)
 
       if (attendeeExists.value === true) {
-         MySwal.fire({ icon: 'info', text: attendeeExists.message, color: "#000000", confirmButtonColor: "#003380" })
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: attendeeExists.message, color: "#000000", confirmButtonColor: "#003380" })
         return
       }
 
       if (sponsorExists.value === true) {
-         MySwal.fire({ icon: 'info', text: sponsorExists.message, color: "#000000", confirmButtonColor: "#003380" })
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: sponsorExists.message, color: "#000000", confirmButtonColor: "#003380" })
         return
       }
 
@@ -85,9 +101,9 @@ function App() {
 
 
     if (attendeeEmailExists) {
-      return { value:true, message: `${registrantInfo.email} is already registed to an attendee`}
+      return { value:true, message: `${registrantInfo.email} is already registered to an attendee`}
     } else if (attendeePhoneExists) {
-      return { value:true, message: `${registrantInfo.phone} is already registed to an attendee`}
+      return { value:true, message: `${registrantInfo.phone} is already registered to an attendee`}
     } else {
       return { value:false, message: ""}
     }
@@ -103,9 +119,9 @@ function App() {
 
 
     if (sponsorEmailExists) {
-      return { value:true, message: `${registrantInfo.email} is already registed to a sponsor`}
+      return { value:true, message: `${registrantInfo.email} is already registered to a sponsor`}
     } else if (sponsorPhoneExists) {
-      return { value:true, message: `${registrantInfo.phone} is already registed to a sponsor`}
+      return { value:true, message: `${registrantInfo.phone} is already registered to a sponsor`}
     } else {
       return { value:false, message: ""}
     }

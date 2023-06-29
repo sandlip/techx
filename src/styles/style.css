@@ -26,7 +26,7 @@
   }
 
   .gradient-overlay {
-    @apply bg-gradient-to-br from-[#003380]/60 via-[#003380]/60 to-[#3fff00]/80
+    @apply bg-gradient-to-br from-[#003380] via-[#003380]/80 to-[#B13F4B]/60
   }
 
   .gradient-text {
