@@ -25,10 +25,6 @@
     @apply text-[#003380] underline
   }
 
-  .gradient-overlay {
-    @apply bg-gradient-to-br from-[#003380] via-[#003380]/80 to-[#B13F4B]/60
-  }
-
   .gradient-text {
     @apply bg-gradient-to-b from-[#3fff00] to-[#003380] text-transparent bg-clip-text
   }

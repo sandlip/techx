@@ -45,7 +45,7 @@ const NavBar = () => {
         </a>
         
 
-        <a href="/#contact-us" className={`${isScrolled ? "bg-black text-white" : "bg-white text-black" } px-2.5 sm:px-3 py-2.5 sm:py-3 rounded-md text-sm font-medium`}>Become a Sponsor</a>
+        {/* <a href="/#contact-us" className={`${isScrolled ? "bg-black text-white" : "bg-white text-black" } px-2.5 sm:px-3 py-2.5 sm:py-3 rounded-md text-sm font-medium`}>Become a Sponsor</a> */}
       </div>
     </div>
   )

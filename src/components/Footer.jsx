@@ -59,7 +59,7 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col-reverse sm:flex-row items-center justify-between py-10 px-6">
-        <h6 className="py-2 text-sm"> &copy; {new Date().getFullYear()} - Sandlip Digital Consulting </h6>
+        <h6 className="py-2 text-sm"> &copy; {new Date().getFullYear()} - <a href="https://sandlip.com" target="_blank" rel="noreferrer" className="underline underline-offset-2">Sandlip Digital Consulting</a> </h6>
 
         <div className="flex items-center justify-center gap-x-6">
           {/* <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-2xl hover:text-[#4267B2]">
