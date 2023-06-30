@@ -12,26 +12,26 @@ import RegisterPage from "./page/RegisterPage";
 const MySwal = withReactContent(Swal)
 
 
+
+
 function App() {
-  const [registrantInfo, setRegistrantInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    expectation: "",
-  })
-  const [formIsSubmitting, setFormIsSubmitting] = useState(false)
+  const [formIsSubmitting, setFormIsSubmitting] = useState(false),
+        [registrantInfo, setRegistrantInfo] = useState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          expectation: "",
+        })
 
 
 
   
 
 
-  const postNewEntry = async (e) => {
-    e.preventDefault()
+  const postNewEntry = async (formType) => {
     setFormIsSubmitting(true)
 
-    const userInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
 
     if (!registrantInfo.firstName) {
         setFormIsSubmitting(false)
@@ -66,11 +66,36 @@ function App() {
       }
 
 
+      if (formType === "register") {
+        const attendeeInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
 
-      axios.post(process.env.REACT_APP_DB_URL, { userInfo }, { headers: {'Content-Type': null} })
+        return axios.post(process.env.REACT_APP_DB_URL, { attendeeInfo }, { headers: {'Content-Type': null} })
+        .then(response => {
+          // console.log(response.data);
+          showSWAL(response.data.title, response.data.message)
+          setFormIsSubmitting(false)
+          setRegistrantInfo({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            expectation: "",
+          });
+        })
+        .catch(postEntryError => {
+          console.log("postEntryError", postEntryError);
+          setFormIsSubmitting(false);
+        })
+      }
+
+
+      const sponsorInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation ]
+
+
+      return axios.post(process.env.REACT_APP_DB_URL, { sponsorInfo }, { headers: {'Content-Type': null} })
       .then(response => {
         // console.log(response.data);
-        showSWAL('Your spot is reserved!')
+        showSWAL(response.data.title, response.data.message)
         setFormIsSubmitting(false)
         setRegistrantInfo({
           firstName: "",
@@ -131,10 +156,10 @@ function App() {
 
 
 
-  const showSWAL = (messageText) => {
+  const showSWAL = (messageTitle, messageText) => {
     MySwal.fire({
+      titleText: messageTitle,
       text: messageText,
-      titleText: "Real MVP",
       color: "#000000",
       confirmButtonText: "Done",
       confirmButtonColor: "#003380",
@@ -169,7 +194,7 @@ function App() {
           />
           
           <Route
-            path="/register"
+            path="/:registrationType"
             element={<RegisterPage
               registrantInfo={registrantInfo}
               setRegistrantInfo={setRegistrantInfo}

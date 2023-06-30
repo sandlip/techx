@@ -1,10 +1,11 @@
+import { useParams } from "react-router-dom"
 
 
 
 
 const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsSubmitting }) => {
 
-
+  const { registrationType } = useParams()
 
 
   const updateField = (e) => {
@@ -101,11 +102,15 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsS
               className="absolute -top-2 left-3 text-xs text-gray-400 z-10 bg-white transition-all duration-300 px-1.5 py-0
               peer-placeholder-shown:top-3 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
               peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
-            >Expectation</label>
+            >{registrationType === "register" ? "Expectation" : "How do you want to sponsor"}</label>
           </aside>
           
           <aside className="text-right">
-            <button className={`bg-[#003380] text-white text-base py-2.5 px-6 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={postNewEntry}>Reserve Spot</button>
+            {registrationType === "register" ?
+              <button className={`bg-[#003380] text-white text-base py-2.5 px-6 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Reserve Spot</button>
+            :
+              <button className={`bg-[#003380] text-white text-base py-2.5 px-6 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
+            }
           </aside>
         </div>
       </section>
