@@ -39,9 +39,9 @@ const NavBar = () => {
   
   return (
     <div className={`z-20 w-full transition-all duration-500 ${window.location.pathname === "/" ? "fixed" : "sticky"} ${isScrolled ? "bg-white text-white sm:text-black" : "bg-transparent text-white" } ${showNavBar ? "-top-40" : "top-0"}`}>
-      <div className={`parent-size py-6 flex items-center justify-between gap-x-6`}>
+      <div className={`parent-size py-4 flex items-center justify-between gap-x-6`}>
         <a href="/" className="">
-          <img src={`${(isScrolled || window.location.pathname !== "/") ? "/img/logo/logo-black.png" : "/img/logo/logo-white.png"}`} alt="SANDLIP" className="h-8 sm:absolute top-4" />
+          <img src={`${(isScrolled || window.location.pathname !== "/") ? "/img/logo/logo-black.png" : "/img/logo/logo-white.png"}`} alt="SANDLIP" className="h-8" />
         </a>
         
 
