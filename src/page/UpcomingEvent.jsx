@@ -32,7 +32,7 @@ const UpcomingEvent = () => {
 
                 <section className="flex items-center gap-x-2 text-base">
                   <div className="border h-7 w-7 flex items-center justify-center rounded-full"> <i className="text-sm bi bi-geo-alt-fill"></i> </div>
-                  <h2 className="font-medium">TBD</h2>
+                  <h2 className="font-medium">Jalingo, Taraba</h2>
                 </section>
               </div>
             </section>
