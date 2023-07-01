@@ -184,12 +184,12 @@ function App() {
         <Routes>
           
           <Route
-            path="/upcoming"
+            path="/"
             element={<LandingPage />}
           />
           
           <Route
-            path="/"
+            path="/upcoming"
             element={<UpcomingEvent />}
           />
           
