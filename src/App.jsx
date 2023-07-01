@@ -179,7 +179,7 @@ function App() {
 
 
   return (
-    <div className="text-lg bg-[#000] text-white">
+    <div className="text-lg">
       <BrowserRouter>
         <Routes>
           

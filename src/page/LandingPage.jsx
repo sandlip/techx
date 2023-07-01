@@ -12,44 +12,6 @@ const LandingPage = () => {
       <div className='overflow-hidden'>
         <HeroSection />
 
-
-        <section className="min-h-screen parent-size flex items-center">
-          <p className="w-full max-w-sm ml-auto uppercase font-normal text-sm">
-            Keynote Speeches, Interactive Sessions, Emerging Technologies Showcase, Networking Opportunities, Tech Talks, Competitions, Startup Showcase, Tech Ethics and Impact Discussions, Tech Expo, Industry Insights
-          </p>
-        </section>
-
-
-        <section className="min-h-screen parent-size space-y-8">
-          <h4 className="digitalFont subHeading-text">INSIGHT</h4>
-
-          <div className="w-full max-w-3xl mx-auto border-8 border-white rounded-lg h-[30rem]" style={{ background: "url(/img/joinUs.jpg)", backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}></div>
-        </section>
-
-
-        <section className="min-h-screen flex items-center">
-          <div className="parent-size space-y-14">
-            <h4 className="digitalFont subHeading-text">3 SPEAKERS</h4>
-
-            <div className="grid grid-cols-12 gap-x-6">
-              <aside className="col-span-12 sm:col-span-4">
-                <div className="w-full h-96" style={{ background: "url(https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
-                {/* <img src="/img/joinUs.jpg" alt="" className="w-full max-w-xl" /> */}
-              </aside>
-              
-              <aside className="col-span-12 sm:col-span-4">
-                <div className="w-full h-96" style={{ background: "url(https://i.quotev.com/2kr3itdgaaaa.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
-                {/* <img src="https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg" alt="" className="w-full max-w-lg" /> */}
-              </aside>
-              
-              <aside className="col-span-12 sm:col-span-4">
-                <div className="w-full h-96" style={{ background: "url(https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
-                {/* <img src="/img/joinUs.jpg" alt="" className="w-full max-w-xl" /> */}
-              </aside>
-            </div>
-          </div>
-        </section>
-
       
 
         <section className="py-24 relative parent-size grid grid-cols-12 gap-y-10 sm:gap-y-20">
