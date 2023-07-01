@@ -179,17 +179,17 @@ function App() {
 
 
   return (
-    <div className="text-lg">
+    <div className="text-lg bg-[#000] text-white">
       <BrowserRouter>
         <Routes>
           
           <Route
-            path="/upcoming"
+            path="/"
             element={<LandingPage />}
           />
           
           <Route
-            path="/"
+            path="/upcoming"
             element={<UpcomingEvent />}
           />
           

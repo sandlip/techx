@@ -14,7 +14,7 @@
   }
   
   .subHeading-text {
-    @apply sm:text-7xl text-6xl font-bold
+    @apply sm:text-7xl text-6xl font-light
   }
   
   .parent-size {
