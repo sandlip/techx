@@ -81,6 +81,11 @@ const LandingPage = () => {
 
 
               <div className="h-[10vh] digitalFont">
+                <h6 className="space-x-1">
+                  <i className="bi bi-geo-alt"></i>
+                  <span className="font-light">DSK Foundation, beside Fidelity Bank, Jalingo, Taraba State</span>
+                </h6>
+                
                 <a href='/register' className="bg-[#000] w-48 py-3 rounded-r-md text-base text-white uppercase flex items-center justify-center gap-x-2">
                   <span className="">Jalingo</span>
                   <span className="text-2xl text-[#3fff00] font-normal">29</span>
@@ -109,9 +114,9 @@ const LandingPage = () => {
               <div className="parent-size space-y-14">
                 <h4 className="digitalFont subHeading-text">3 SPEAKERS</h4>
 
-                <div className="grid grid-cols-12 gap-6">
+                <div className="grid grid-cols-12 gap-8">
                   <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
-                    <section className="h-80 overflow-hidden">
+                    <section className="h-96 overflow-hidden">
                       <div className="w-full h-96" style={{ background: "url('/img/Gideon Nonso.png')", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
                     </section>
 
@@ -123,7 +128,7 @@ const LandingPage = () => {
                   </aside>
                   
                   <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
-                    <section className="h-80 overflow-hidden">
+                    <section className="h-96 overflow-hidden">
                       <div className="w-full h-96" style={{ background: "url(https://i.quotev.com/2kr3itdgaaaa.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
                     </section>
 
@@ -135,7 +140,7 @@ const LandingPage = () => {
                   </aside>
                   
                   <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
-                    <section className="h-80 overflow-hidden">
+                    <section className="h-96 overflow-hidden">
                       <div className="w-full h-96" style={{ background: "url('/img/team/jon.png')", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
                     </section>
 
