@@ -110,18 +110,39 @@ const LandingPage = () => {
                 <h4 className="digitalFont subHeading-text">3 SPEAKERS</h4>
 
                 <div className="grid grid-cols-12 gap-6">
-                  <aside className="col-span-12 sm:col-span-4">
-                    <div className="w-full h-96" style={{ background: "url(https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                  <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
+                    <section className="h-80 overflow-hidden">
+                      <div className="w-full h-96" style={{ background: "url('/img/Gideon Nonso.png')", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                    </section>
+
+                    <div className="p-4 text-black">
+                      <h1 className="text-2xl font-semibold">Gideon Nonso</h1>
+                      <h6 className="text-base leading-none">Taraba State Commissioner of Digital Economy and Innovation</h6>
+                    </div>
                     {/* <img src="/img/joinUs.jpg" alt="" className="w-full max-w-xl" /> */}
                   </aside>
                   
-                  <aside className="col-span-12 sm:col-span-4">
-                    <div className="w-full h-96" style={{ background: "url(https://i.quotev.com/2kr3itdgaaaa.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                  <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
+                    <section className="h-80 overflow-hidden">
+                      <div className="w-full h-96" style={{ background: "url(https://i.quotev.com/2kr3itdgaaaa.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                    </section>
+
+                    <div className="p-4 text-black">
+                      <h1 className="text-2xl font-semibold">Mystery Speaker</h1>
+                      <h6 className="text-base leading-none">Will be unveiled at Tech eXperience</h6>
+                    </div>
                     {/* <img src="https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg" alt="" className="w-full max-w-lg" /> */}
                   </aside>
                   
-                  <aside className="col-span-12 sm:col-span-4">
-                    <div className="w-full h-96" style={{ background: "url(https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                  <aside className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
+                    <section className="h-80 overflow-hidden">
+                      <div className="w-full h-96" style={{ background: "url('/img/team/jon.png')", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+                    </section>
+
+                    <div className="p-4 text-black">
+                      <h1 className="text-2xl font-semibold">John Okeke</h1>
+                      <h6 className="text-base leading-none">Founder, Sandlip Digital Consulting</h6>
+                    </div>
                     {/* <img src="/img/joinUs.jpg" alt="" className="w-full max-w-xl" /> */}
                   </aside>
                 </div>
