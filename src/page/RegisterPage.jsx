@@ -1,19 +1,19 @@
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 
 
 
 
 const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsSubmitting }) => {
 
-  const { registrationType } = useParams()
+  // const { registrationType } = useParams()
 
 
-  const updateField = (e) => {
-    setRegistrantInfo(previousState => ({
-      ...previousState,
-      [e.target.name]: e.target.value
-    }))
-  }
+  // const updateField = (e) => {
+  //   setRegistrantInfo(previousState => ({
+  //     ...previousState,
+  //     [e.target.name]: e.target.value
+  //   }))
+  // }
 
 
 
@@ -24,8 +24,21 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsS
 
   return (
     <div className="sm:min-h-screen space-y-6 py-6">
-      <section className="min-h-screen sm:min-h-fit flex items-center justify-center px-4">
+      <section className="min-h-screen flex items-center justify-center px-4">
         <div className="w-full max-w-lg mx-auto border border-gray-300 rounded-lg shadow-lg py-10 sm:px-8 px-4 font-medium space-y-6">
+          <div className="w-fit mx-auto">
+            <a href="/" className=""> <img src="/img/logo/logo-black.png" alt="SANDLIP" className="h-6" /> </a>
+          </div>
+
+          <h6 className="text-xl">
+            Thank you for you interest to be a participants of Tech eXperience. The event has ended but we look forward to having you with us in the next one.
+          </h6>
+
+          <h6 className="text-xl">
+            Want to be a part of the community to get first hand information about our events? <a href="https://wa.me/+2349161688902?text=Hi, My name is" className="underline text-[#003380]">Click here to tell us your full name</a>, you will be added to the community ASAP.
+          </h6>
+        </div>
+        {/* <div className="w-full max-w-lg mx-auto border border-gray-300 rounded-lg shadow-lg py-10 sm:px-8 px-4 font-medium space-y-6">
           <div className="w-fit mx-auto">
             <a href="/" className=""> <img src="/img/logo/logo-black.png" alt="SANDLIP" className="h-6" /> </a>
           </div>
@@ -112,7 +125,7 @@ const RegisterPage = ({ registrantInfo, setRegistrantInfo, postNewEntry, formIsS
               <button className={`bg-[#003380] text-white text-base py-2.5 px-6 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
             }
           </aside>
-        </div>
+        </div> */}
       </section>
 
       <section className="text-center text-sm">
