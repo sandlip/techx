@@ -133,8 +133,8 @@ const LandingPage = () => {
                     </section>
 
                     <div className="p-4 text-black">
-                      <h1 className="text-2xl font-semibold">Mystery Speaker</h1>
-                      <h6 className="text-base leading-none">Will be unveiled at Tech eXperience</h6>
+                      <h1 className="text-2xl font-semibold">Penelope</h1>
+                      <h6 className="text-base leading-none">AI voiceover character from Revoicer</h6>
                     </div>
                     {/* <img src="https://www.baps.org.uk/content/uploads/2020/05/mystery-person.jpg" alt="" className="w-full max-w-lg" /> */}
                   </aside>
