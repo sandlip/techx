@@ -9,10 +9,10 @@ const LandingPage = () => {
       <NavBar />
       
       <div className='overflow-hidden'>
-        <section className=" w-full flex flex-col justify-center" style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
-          <section className="bg-black/80">
-            <section className="flex items-center p-5 py-20">
-              <div className="sm:col-span-2 text-white subHeading-text">
+        <section className="w-full flex flex-col justify-center" style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
+          <section className="bg-black/80 py-20">
+            <section className="flex items-center p-5">
+              <div className="sm:col-span-2 text-gray-400 sm:text-white subHeading-text">
                 <h1 className="sm:text-9xl text-3xl">EVENT</h1>
                 <div className="flex justify-start items-center">
                   <i class="bi bi-arrow-right sm:text-9xl hidden sm:block"></i>
@@ -21,9 +21,9 @@ const LandingPage = () => {
                 </div>
               </div>
             </section>
-            <div className="sm:grid grid-cols-12 text-white p-5 gap-10 space-y-4 sm:space-y-0">
+            <div className="sm:grid grid-cols-12 text-gray-400 sm:text-white p-5 gap-10 space-y-6 sm:space-y-0">
               <div className="col-span-4">
-                <div className="space-y-4">
+                <div className="sm:space-y-4">
                   <div className="">
                     <p className="">29.04.23</p>
                   </div>
@@ -40,7 +40,7 @@ const LandingPage = () => {
                 </div>
               </div>
               <div className="col-span-4">
-                <div className="space-y-4">
+                <div className="sm:space-y-4">
                   <div className="">
                     <p className="">29.07.23</p>
                   </div>
@@ -57,7 +57,7 @@ const LandingPage = () => {
                 </div>
               </div>
               <div className="col-span-4">
-                <div className="space-y-4">
+                <div className="sm:space-y-4">
                   <div className="">
                     <p className="">09-11.11.23</p>
                   </div>
@@ -85,7 +85,7 @@ const LandingPage = () => {
 
           <div className="sm:grid grid-cols-12 gap-10 p-7 space-y-10 sm:space-y-0">
             <div className="col-span-3" >
-              <a href="/upcoming" className="">
+              <a href="/techExpose" className="">
                 <img src="/img/joinUs.jpg" alt="" className="hover:opacity-80" />
                 <div className="space-y-2">
                   <div className="sm:text-3xl">
@@ -103,7 +103,7 @@ const LandingPage = () => {
             </div>
            
             <div className="col-span-3">
-              <a href="/upcoming" className="">
+              <a href="/techX" className="">
                 <img src="/img/TechX-1.JPG" alt="" className="hover:opacity-80" />
                 <div className="space-y-2">
                   <div className="sm:text-3xl">
@@ -121,7 +121,7 @@ const LandingPage = () => {
             </div>
             <div className="col-span-3">
               <a href="/upcoming" className="">
-                <img src="/img/joinUs.jpg" alt="" className="hover:opacity-80" />
+                <img src="/img/hackathon.jpg" alt="" className="hover:opacity-80" />
                 <div className="space-y-2">
                   <div className="sm:text-3xl">
                     <h1 className="">CR8 Taraba</h1>
