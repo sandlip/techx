@@ -12,7 +12,7 @@ const LandingPage = () => {
         <section className="w-full flex flex-col justify-center" style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
           <section className="bg-black/80 py-20">
             <section className="flex items-center p-5">
-              <div className="sm:col-span-2 text-gray-400 sm:text-white subHeading-text">
+              <div className="sm:col-span-2 text-gray-400 sm:text-white subHeading-text mt-10">
                 <h1 className="sm:text-9xl text-3xl">EVENT</h1>
                 <div className="flex justify-start items-center">
                   <i class="bi bi-arrow-right sm:text-9xl hidden sm:block"></i>
