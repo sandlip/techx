@@ -6,11 +6,11 @@
 
 @layer components {
   .tiny-text {
-    @apply text-sm sm:text-xs font-semibold
+    @apply text-sm sm:text-xs
   }
   
   .massive-text {
-    @apply text-7xl sm:text-9xl font-medium
+    @apply text-7xl sm:text-[10rem]
   }
   
   .subHeading-text {
@@ -18,7 +18,7 @@
   }
   
   .parent-size {
-    @apply w-full max-w-6xl mx-auto px-4
+    @apply w-full max-w-7xl mx-auto px-4
   }
 
   .link-text {
