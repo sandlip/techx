@@ -14,7 +14,7 @@ function Upcoming() {
             <h1 className="text-6xl" >
               &lt;CR8 HACKATHON TARABA 2023/&gt;
             </h1>
-            <a className="flex justify-end italic">
+            <a href='/#' className="flex justify-end italic">
               Season 1
             </a>
           </div>

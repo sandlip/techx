@@ -3,25 +3,17 @@ html {
   overflow-y: scroll;
 }
 
-.arrayFont {
-  font-family: 'Array', sans-serif;
-}
-
-.glowing-text {
-  text-shadow: 0 0 20px #fff, 0 0 30px #3fff00, 0 0 40px #3fff00, 0 0 50px #3fff00, 0 0 60px #3fff00, 0 0 70px #3fff00, 0 0 80px #3fff00;
-}
-
-.tabularFont {
-  font-family: 'Raleway', sans-serif;
-}
-
-.digitalFont {
-  font-family: 'Nippo', sans-serif;
-}
-
 body {
-  font-family: 'Tabular', sans-serif;
+  font-family: 'Recia', serif;
 }
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Erode', serif;
+}
+
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
