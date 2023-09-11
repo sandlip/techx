@@ -1222,6 +1222,11 @@ video {
   line-height: 1.5;
 }
 
+.text-\[\#003380\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 51 128 / var(--tw-text-opacity));
+}
+
 .text-\[\#3fff00\] {
   --tw-text-opacity: 1;
   color: rgb(63 255 0 / var(--tw-text-opacity));
@@ -1240,11 +1245,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[\#003380\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 51 128 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1438,12 +1438,6 @@ video {
 
   .sm\:flex {
     display: flex;
-  }
-
-  .sm\:min-h-fit {
-    min-height: -webkit-fit-content;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
   }
 
   .sm\:min-h-screen {
