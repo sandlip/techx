@@ -3,10 +3,12 @@ import axios from "axios";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-
 import LandingPage from './page/LandingPage';
-import UpcomingEvent from './page/UpcomingEvent';
 import RegisterPage from "./page/RegisterPage";
+import TechExpose from "./page/TechExpose";
+import TechX from "./page/TechX";
+import Upcoming from "./page/Upcoming";
+
 
 
 const MySwal = withReactContent(Swal)
@@ -189,10 +191,20 @@ function App() {
           />
           
           <Route
-            path="/upcoming"
-            element={<UpcomingEvent />}
+            path="/techX"
+            element={<TechX />}
           />
           
+          <Route 
+            path="/techExpose" 
+            element={<TechExpose />}
+          />
+
+          <Route 
+            path="/upcoming" 
+            element={<Upcoming />}
+          />
+
           <Route
             path="/:registrationType"
             element={<RegisterPage
