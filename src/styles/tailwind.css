@@ -725,6 +725,10 @@ video {
   margin-right: auto;
 }
 
+.-ml-3 {
+  margin-left: -0.75rem;
+}
+
 .-mt-1 {
   margin-top: -0.25rem;
 }
@@ -739,18 +743,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.-ml-2 {
-  margin-left: -0.5rem;
-}
-
-.-ml-6 {
-  margin-left: -1.5rem;
-}
-
-.-ml-3 {
-  margin-left: -0.75rem;
 }
 
 .flex {
@@ -1016,30 +1008,6 @@ video {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
-.-space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(-0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(-0.75rem * var(--tw-space-y-reverse));
-}
-
-.-space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(-1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(-1.5rem * var(--tw-space-y-reverse));
-}
-
-.-space-y-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(-2rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(-2rem * var(--tw-space-y-reverse));
-}
-
-.-space-y-10 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(-2.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(-2.5rem * var(--tw-space-y-reverse));
-}
-
 .self-center {
   align-self: center;
 }
@@ -1279,11 +1247,6 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
 .pb-3 {
@@ -1610,28 +1573,16 @@ video {
     grid-row: span 3 / span 3;
   }
 
+  .sm\:-ml-8 {
+    margin-left: -2rem;
+  }
+
   .sm\:ml-0 {
     margin-left: 0px;
   }
 
   .sm\:mt-0 {
     margin-top: 0px;
-  }
-
-  .sm\:-ml-6 {
-    margin-left: -1.5rem;
-  }
-
-  .sm\:-ml-7 {
-    margin-left: -1.75rem;
-  }
-
-  .sm\:-ml-8 {
-    margin-left: -2rem;
-  }
-
-  .sm\:-ml-9 {
-    margin-left: -2.25rem;
   }
 
   .sm\:flex {
@@ -1685,6 +1636,12 @@ video {
     row-gap: 5rem;
   }
 
+  .sm\:-space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(-2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(-2rem * var(--tw-space-y-reverse));
+  }
+
   .sm\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
@@ -1695,12 +1652,6 @@ video {
     --tw-space-y-reverse: 0;
     margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-  }
-
-  .sm\:-space-y-8 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(-2rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(-2rem * var(--tw-space-y-reverse));
   }
 
   .sm\:overscroll-y-auto {

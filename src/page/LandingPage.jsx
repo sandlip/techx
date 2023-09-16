@@ -16,7 +16,7 @@ const LandingPage = () => {
 
               <div className="flex justify-start items-center">
                 <i class="bi bi-arrow-right-short -ml-3 sm:-ml-8"></i>
-                <h4 className="">CALENDAR</h4>
+                <h4 className="">LISTING</h4>
               </div>
             </section>
 
@@ -27,7 +27,7 @@ const LandingPage = () => {
                   <h1 className="text-3xl">TECH EXPOSE</h1>
 
                   <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right text-3xl"></i>
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
                     <h6 className="">TARABA</h6>
                   </div>
                 </div>
@@ -43,7 +43,7 @@ const LandingPage = () => {
                   <h1 className="text-3xl">TECH eXperience</h1>
 
                   <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right text-3xl"></i>
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
                     <h6 className="">TARABA</h6>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ const LandingPage = () => {
                   <h5 className="text-3xl">CR8 HACKATHON</h5>
 
                   <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right text-3xl"></i>
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
                     <h6 className="">TARABA</h6>
                   </div>
                 </div>
