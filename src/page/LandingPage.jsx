@@ -3,6 +3,32 @@ import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 
+
+const eventsArray = [
+  { title: 'CR8 HACKATHON',
+    date: '09-11.11.23',
+    location: 'TARABA',
+    summary: 'Leveraging problem-based learning practices to solve problems creatively and collaboratively.',
+  },
+
+  { title: 'TECH eXperience',
+    date: '29.07.23',
+    location: 'TARABA',
+    summary: 'Showcasing the latest advancements in technology, including Artificial Intelligence, digitalization, and the opportunity to network.',
+  },
+
+  { title: 'TECH EXPOSE',
+    date: '29.04.23',
+    location: 'TARABA',
+    summary: 'Providing a platform for attendees to learn about emerging trends and strategies for staying competitive in the tech industry.',
+  },
+]
+
+
+
+
+
+
 const LandingPage = () => {
   return (
     <>
@@ -21,53 +47,22 @@ const LandingPage = () => {
             </section>
 
             <section className="grid grid-cols-12 gap-y-8 space-y-6 sm:space-y-0">
-              <aside className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
-                <div className="">
-                  <h6 className="text-base"> 29.04.23 </h6>
-                  <h1 className="text-3xl">TECH EXPOSE</h1>
+              { eventsArray.slice(0, 3).map((eventObj, index) => (
+                  <aside key={index} className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
+                    <div className="">
+                      <h6 className="text-base"> {eventObj.date} </h6>
+                      <h5 className="text-3xl"> {eventObj.title} </h5>
 
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h6 className="">TARABA</h6>
-                  </div>
-                </div>
+                      <div className="flex justify-start items-center -mt-1">
+                        <i class="bi bi-arrow-right-short text-3xl"></i>
+                        <h6 className=""> {eventObj.location} </h6>
+                      </div>
+                    </div>
 
-                <article className="tiny-text leading-relaxed">
-                  Providing a platform for attendees to learn about emerging trends and strategies for staying competitive in the tech industry.
-                </article>
-              </aside>
-
-              <aside className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
-                <div className="">
-                  <h6 className="text-base"> 29.07.23 </h6>
-                  <h1 className="text-3xl">TECH eXperience</h1>
-
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h6 className="">TARABA</h6>
-                  </div>
-                </div>
-
-                <article className="tiny-text leading-relaxed">
-                  Showcasing the latest advancements in technology, including Artificial Intelligence, digitalization, and the opportunity to network.
-                </article>
-              </aside>
-              
-              <aside className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
-                <div className="">
-                  <h6 className="text-base"> 09-11.11.23 </h6>
-                  <h5 className="text-3xl">CR8 HACKATHON</h5>
-
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h6 className="">TARABA</h6>
-                  </div>
-                </div>
-
-                <article className="tiny-text leading-relaxed">
-                  Leveraging problem-based learning practices to solve problems creatively and collaboratively.
-                </article>
-              </aside>
+                    <article className="tiny-text leading-relaxed"> {eventObj.summary} </article>
+                  </aside>
+                ))
+              }
             </section>
           </div>
         </div>
@@ -80,63 +75,69 @@ const LandingPage = () => {
         </div>
 
         <div className="sm:grid grid-cols-12 gap-10 p-7 space-y-10 sm:space-y-0">
-          <div className="col-span-3" >
-            <a href="/techExpose" className="">
-              <img src="/img/joinUs.jpg" alt="" className="hover:opacity-80" />
-              <div className="space-y-2">
-                <div className="sm:text-3xl">
-                  <h5 className="">TECH EXPOSE</h5>
-                  
-                  <div className="flex justify-start items-center">
-                    <i class="bi bi-arrow-right text-3xl"></i>
-                    <h5 className="">TARABA</h5>
-                  </div>
-                </div>
-
-                <article className="text-base">
-                  A dive into the latest trends and advancements, showcasing the transformative power of technology. Connect with like-minded individuals for growth and collaboration.
-                </article>
-              </div>
-            </a>
-          </div>
-          
-          <div className="col-span-3">
-            <a href="/techX" className="">
-              <img src="/img/TechX-1.JPG" alt="" className="hover:opacity-80" />
-              
-              <div className="space-y-2">
-                <div className="sm:text-3xl">
-                  <h5 className="">TECH eXperience</h5>
-                  
-                  <div className="flex justify-start items-center">
-                    <i class="bi bi-arrow-right text-3xl"></i>
-                    <h5 className="">TARABA</h5>
-                  </div>
-                </div>
-
-                <article className="text-base">
-                  A gathering of industry leaders, experts, and enthusiasts to explore the latest advancements and opportunities in the realm of technology.
-                </article>
-              </div>
-            </a>
-          </div>
-          <div className="col-span-3">
+          <aside className="col-span-3 group">
             <a href="/upcoming" className="">
-              <img src="/img/hackathon.jpg" alt="" className="hover:opacity-80" />
-              <div className="space-y-2">
-                <div className="sm:text-3xl">
-                  <h1 className="">CR8 Taraba</h1>
-                  <div className="flex justify-start items-center">
-                    <i class="bi bi-arrow-right text-3xl"></i>
-                    <h1 className="">Hackathon</h1>
+              <img src="/img/hackathon.jpg" alt="CR8 HACKATHON" className="group-hover:opacity-80 h-56 w-full"/>
+
+              <div className="space-y-2 flex flex-col">
+                <div className="flex-1">
+                  <h1 className="text-3xl">CR8 HACKATHON</h1>
+
+                  <div className="flex justify-start items-center -mt-1">
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
+                    <h1 className="">TARABA</h1>
                   </div>
                 </div>
-                <div className="text-base">
-                An event that brings together people from different backgrounds and skill sets to work collaboratively on solving problems and developing new ideas.
+
+                <div className="text-base line-clamp-4">
+                  An event that brings together people from different backgrounds and skill sets to work collaboratively on solving problems and developing new ideas.
                 </div>
               </div>
             </a>
-          </div>
+          </aside>
+
+          <aside className="col-span-3 group">
+            <a href="/techX" className="">
+              <img src="/img/TechX-1.JPG" alt="TECH eXperience" className="group-hover:opacity-80 h-56 w-full"/>
+              
+              <div className="space-y-2 flex flex-col">
+                <div className="flex-1">
+                  <h5 className="text-3xl">TECH eXperience</h5>
+                  
+                  <div className="flex justify-start items-center -mt-1">
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
+                    <h5 className="">TARABA</h5>
+                  </div>
+                </div>
+
+                <div className="text-base line-clamp-4">
+                  A gathering of industry leaders, experts, and enthusiasts to explore the latest advancements and opportunities in the realm of technology.
+                </div>
+              </div>
+            </a>
+          </aside>
+
+          <aside className="col-span-3 group">
+            <a href="/techExpose" className="">
+              <img src="/img/joinUs.jpg" alt="TECH EXPOSE" className="group-hover:opacity-80 h-56 w-full"/>
+
+              <div className="space-y-2 flex flex-col">
+                <div className="flex-1">
+                  <h5 className="text-3xl">TECH EXPOSE</h5>
+                  
+                  <div className="flex justify-start items-center -mt-1">
+                    <i class="bi bi-arrow-right-short text-3xl"></i>
+                    <h5 className="">TARABA</h5>
+                  </div>
+                </div>
+
+                <div className="text-base line-clamp-4">
+                  A dive into the latest trends and advancements, showcasing the transformative power of technology. Connect with like-minded individuals for growth and collaboration.
+                </div>
+              </div>
+            </a>
+          </aside>
+          
           <div className="col-span-3 flex flex-col items-center">
             <div className="">
               <img src="/img/joinUs.jpg" alt="" className="" />

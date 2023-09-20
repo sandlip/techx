@@ -11,7 +11,7 @@ const Footer = () => {
         <section className="col-span-12 sm:col-span-9 space-y-14 self-center w-full max-w-4xl">
           <div className="space-y-2">
             <h5 className="uppercase text-3xl font-semibold">Take ownership of your brand</h5>
-            <h6 className="font-medium opacity-50">Simplify your operations with us - your trusted partner for stress-free solutions.</h6>
+            <h6 className="opacity-50">Simplify your operations with us - your trusted partner for stress-free solutions.</h6>
           </div>
 
           <div className="space-y-3">

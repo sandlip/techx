@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -190,6 +190,11 @@ select,
 textarea {
   font-family: inherit;
   /* 1 */
+  -webkit-font-feature-settings: inherit;
+          font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
   font-size: 100%;
   /* 1 */
   font-weight: inherit;
@@ -337,6 +342,14 @@ ul,
 menu {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
   padding: 0;
 }
 
@@ -745,6 +758,20 @@ video {
   margin-top: 0.5rem;
 }
 
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .flex {
   display: flex;
 }
@@ -755,6 +782,10 @@ video {
 
 .grid {
   display: grid;
+}
+
+.h-56 {
+  height: 14rem;
 }
 
 .h-6 {
@@ -845,6 +876,10 @@ video {
 
 .max-w-xxs {
   max-width: 16rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 @-webkit-keyframes bounce {
@@ -1468,12 +1503,12 @@ video {
   color: transparent;
 }
 
-.hover\:opacity-80:hover {
-  opacity: 0.8;
-}
-
 .focus\:outline-\[\#003380\]:focus {
   outline-color: #003380;
+}
+
+.group:hover .group-hover\:opacity-80 {
+  opacity: 0.8;
 }
 
 .peer:placeholder-shown ~ .peer-placeholder-shown\:left-2 {
@@ -1680,11 +1715,6 @@ video {
   .sm\:py-3\.5 {
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
-  }
-
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .sm\:text-9xl {
