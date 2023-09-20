@@ -31,7 +31,7 @@ const Footer = () => {
                 <div className="col-span-2 h-8 w-8 rounded-full border text-xl flex items-center justify-center">
                   <i className="bi bi-envelope-at"></i>
                 </div>
-                <h6 className="text-sm"> info@sandlip.com </h6>
+                <div className="text-sm"> info@sandlip.com </div>
               </div>
 
               <div className="col-span-12 sm:col-span-4 grid grid-cols-12 p-2 items-center">
@@ -39,8 +39,8 @@ const Footer = () => {
                   <i className="bi bi-telephone-plus"></i>
                 </div>
                 <div className="col-span-10">
-                  <h6 className="text-sm text-left"> +234 (0) 802-363-7416 </h6>
-                  <h6 className="text-sm text-left"> +234 (0) 916-168-8902 </h6>
+                  <div className="text-sm text-left"> +234 (0) 802-363-7416 </div>
+                  <div className="text-sm text-left"> +234 (0) 916-168-8902 </div>
                 </div>
               </div>
 
