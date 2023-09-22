@@ -11,15 +11,15 @@ import NavBar from "../components/Navbar"
 const RegisterPage = ({ MySwal }) => {
   const { registrationType } = useParams()
   const [formIsSubmitting, setFormIsSubmitting] = useState(false),
-        [agreeToTerms, setAgreeToTerms] = useState(false),
-        [ideaSector, setIdeaSector] = useState(''),
-        [teamMembers, setTeamMembers] = useState([]),
+        // [agreeToTerms, setAgreeToTerms] = useState(false),
+        // [ideaSector, setIdeaSector] = useState(''),
+        [teamMembers, setTeamMembers] = useState(["", "", "", "", ""]),
         [registrantInfo, setRegistrantInfo] = useState({
-          nameOfTeam: "",
-          ideaDescription: "",
-          linkToVideo: "",
-          email: "",
-          phone: "",
+          "Email": "",
+          "Phone": "",
+          "Name Of Team": "",
+          "Idea Description": "",
+          "Link To Video": "",
         })
 
 
@@ -30,20 +30,24 @@ const RegisterPage = ({ MySwal }) => {
   const postNewEntry = async (formType) => {
     setFormIsSubmitting(true)
 
-
-    if (!registrantInfo.firstName) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: "Please provide first name", color: "#000000", confirmButtonColor: "#003380" })
-        return
-    } else if (!registrantInfo.lastName) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: "Please provide last name", color: "#000000", confirmButtonColor: "#003380" })
-        return
-    } else if (!registrantInfo.phone) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: "Please provide your phone number", color: "#000000", confirmButtonColor: "#003380" })
-        return
+    for (const key in registrantInfo) {
+      if (Object.hasOwnProperty.call(registrantInfo, key)) {
+        if (!registrantInfo[key]) {
+          setFormIsSubmitting(false)
+          MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
+          return
+        }
+      }
     }
+
+    // for (const [key, value] of Object.keys(registrantInfo)) {
+    //   console.log(value);
+    //   if (!value) {
+    //     setFormIsSubmitting(false)
+    //     MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
+    //     return
+    //   }
+    // }
     
 
     await axios.get(process.env.REACT_APP_DB_URL)
@@ -274,13 +278,13 @@ const RegisterPage = ({ MySwal }) => {
 
 
 
-      <section className="parent-size min-h-screen px-4">
+      <section className="parent-size min-h-screen px-4 py-20">
         <div className="w-full max-w-3xl font-medium space-y-6">
           <aside className="relative">
-            <input type="email" name="email"
-              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded py-2.5 px-3 w-full`}
+            <input type="email" name="Email"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
               placeholder="Contact Email"
-              value={registrantInfo.email}
+              value={registrantInfo.Email}
               onChange={updateField}
             />
 
@@ -292,10 +296,10 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="relative">
-            <input type="text" name="phone"
-              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded py-2.5 px-3 w-full`}
+            <input type="text" name="Phone"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
               placeholder="Phone"
-              value={registrantInfo.phone}
+              value={registrantInfo.Phone}
               onChange={updateField}
             />
 
@@ -307,10 +311,10 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="relative">
-            <input type="text" name="nameOfTeam"
-              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded py-2.5 px-3 w-full`}
+            <input type="text" name="Name Of Team"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
               placeholder="First Name"
-              value={registrantInfo.nameOfTeam}
+              value={registrantInfo['Name Of Team']}
               onChange={updateField}
             />
 
@@ -322,10 +326,10 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="relative">
-            <textarea name="ideaDescription" rows="4"
-              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded py-2.5 px-3 w-full`}
+            <textarea name="Idea Description" rows="4"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
               placeholder="Describe your idea"
-              value={registrantInfo.ideaDescription}
+              value={registrantInfo['Idea Description']}
               onChange={updateField}
             ></textarea>
 
@@ -334,13 +338,72 @@ const RegisterPage = ({ MySwal }) => {
               peer-placeholder-shown:top-3.5 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
               peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
             >Describe your idea</label>
+
+            <div className="text-xs">Min 150 characters</div>
+          </aside>
+          
+          <aside className="space-y-4">
+            <p className="">Full Name of Team Members</p>
+            
+            {
+              teamMembers.map((teamMember, index) => (
+                <aside key={index} className="flex items-center gap-x-4">
+                  <div className="relative flex-1">
+                    <input type="text"
+                      className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
+                      placeholder={`Team Member ${index + 1}`}
+                      value={teamMember}
+                      onChange={(e) => {
+                        const memberName = [...teamMembers]
+                        memberName[index] = e.target.value
+
+                        setTeamMembers(memberName)
+                      }}
+                    />
+
+                    <label htmlFor=""
+                      className="absolute -top-2 left-3 text-xs text-gray-600 z-10 bg-white transition-all duration-300 px-1.5 py-0
+                      peer-placeholder-shown:top-3.5 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
+                      peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
+                    >Team Member {index + 1}</label>
+                  </div>
+
+                  <div className="">
+                    <div
+                      className={`bg-green-600 text-white h-6 w-6 rounded-full flex items-center justify-center cursor-pointer shadow-sm shadow-black ${teamMembers.length - 1 > index && "hidden"}`}
+                      onClick={() => {
+                        if (teamMembers.length < 7) {
+                          setTeamMembers(previousState => ([...previousState, ""]))
+                        }
+                      }}
+                    >
+                      <i className="bi bi-plus"></i>
+                    </div>
+
+                    <div
+                      className={`bg-red-600 text-white h-6 w-6 rounded-full flex items-center justify-center cursor-pointer shadow-sm shadow-black ${teamMembers.length - 1 === index && "hidden"}`}
+                      onClick={() => {
+                        if (teamMembers.length > 5) {
+                          const updatedEntries = [...teamMembers]
+                          updatedEntries.splice(index, 1);
+
+                          setTeamMembers(updatedEntries)
+                        }
+                      }}
+                    >
+                      <i className="bi bi-dash"></i>
+                    </div>
+                  </div>
+                </aside>
+              ))
+            }
           </aside>
           
           <aside className="relative">
-            <input type="text" name="lastName"
-              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded py-2.5 px-3 w-full`}
-              placeholder="Last Name"
-              value={registrantInfo.lastName}
+            <input type="text" name="Link To Video"
+              className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
+              placeholder="Link to YouTube Video"
+              value={registrantInfo['Link To Video']}
               onChange={updateField}
             />
 
@@ -348,11 +411,15 @@ const RegisterPage = ({ MySwal }) => {
               className="absolute -top-2 left-3 text-xs text-gray-600 z-10 bg-white transition-all duration-300 px-1.5 py-0
               peer-placeholder-shown:top-3.5 peer-placeholder-shown:left-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:text-base
               peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
-            >Last Name</label>
+            >Link to YouTube Video</label>
+          </aside>
+
+          <aside className="text-base">
+            By clicking "Submit Detail", you agree to the <a href="/#" className="text-[#3fff00]">terms and conditions</a> of the Cr8 Hackathon Taraba
           </aside>
           
           <aside className="">
-            <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
+            <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm pointer-events-none opacity-30 ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
           </aside>
         </div>
       </section>
