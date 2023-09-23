@@ -9,10 +9,8 @@ import NavBar from "../components/Navbar"
 
 
 const RegisterPage = ({ MySwal }) => {
-  const { registrationType } = useParams()
   const [formIsSubmitting, setFormIsSubmitting] = useState(false),
-        // [agreeToTerms, setAgreeToTerms] = useState(false),
-        // [ideaSector, setIdeaSector] = useState(''),
+        [ideaSector, setIdeaSector] = useState(''),
         [teamMembers, setTeamMembers] = useState(["", "", "", "", ""]),
         [registrantInfo, setRegistrantInfo] = useState({
           "Email": "",
@@ -20,7 +18,8 @@ const RegisterPage = ({ MySwal }) => {
           "Name Of Team": "",
           "Idea Description": "",
           "Link To Video": "",
-        })
+        }),
+        { registrationType } = useParams()
 
 
 
@@ -28,131 +27,162 @@ const RegisterPage = ({ MySwal }) => {
 
 
   const postNewEntry = async (formType) => {
-    setFormIsSubmitting(true)
+    // console.log(Object.values(registrantInfo));
+    // setFormIsSubmitting(true)
 
-    for (const key in registrantInfo) {
-      if (Object.hasOwnProperty.call(registrantInfo, key)) {
-        if (!registrantInfo[key]) {
-          setFormIsSubmitting(false)
-          MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
-          return
-        }
+    for (const [key, value] of Object.entries(registrantInfo)) {
+      if (!value) {
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
+        return
       }
     }
 
-    // for (const [key, value] of Object.keys(registrantInfo)) {
-    //   console.log(value);
-    //   if (!value) {
-    //     setFormIsSubmitting(false)
-    //     MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
-    //     return
-    //   }
-    // }
+    if (!ideaSector) {
+      setFormIsSubmitting(false)
+      MySwal.fire({ icon: 'info', text: `Please select the sector your idea belongs to`, color: "#000000", confirmButtonColor: "#003380" })
+      return
+    }
+
+    const listOfTeam = teamMembers.filter(member => member !== "")
+    if (listOfTeam.length < 5) {
+      setFormIsSubmitting(false)
+      MySwal.fire({ icon: 'info', text: `You need minimum of 5 team members`, color: "#000000", confirmButtonColor: "#003380" })
+      return
+    }
+
+    const applicantsInfo = [...Object.values(registrantInfo), ideaSector, JSON.stringify(teamMembers), new Date()]
+
+
+    return axios.post(process.env.REACT_APP_DB_URL, { applicantsInfo }, { headers: {'Content-Type': null} })
+    .then(response => {
+      console.log(response.data);
+      showSWAL(response.data.title, response.data.message)
+      setFormIsSubmitting(false)
+      setRegistrantInfo({
+        "Email": "",
+        "Phone": "",
+        "Name Of Team": "",
+        "Idea Description": "",
+        "Link To Video": "",
+      });
+
+      setTeamMembers(["", "", "", "", ""])
+    })
+    .catch(postEntryError => {
+      console.log("postEntryError", postEntryError);
+      setFormIsSubmitting(false);
+    })
     
 
-    await axios.get(process.env.REACT_APP_DB_URL)
-    .then(participants => {
-      const attendeeExists = checkIfAttendeeExists(participants.data.attendees)
-      const sponsorExists = checkIfSponsorExists(participants.data.sponsors)
+    // axios.get(process.env.REACT_APP_DB_URL)
+    // .then(participants => {
+    //   const attendeeExists = checkIfTeamExists(participants.data.attendees)
+    //   const sponsorExists = checkIfSponsorExists(participants.data.sponsors)
 
-      if (attendeeExists.value === true) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: attendeeExists.message, color: "#000000", confirmButtonColor: "#003380" })
-        return
-      }
+    //   if (attendeeExists.value === true) {
+    //     setFormIsSubmitting(false)
+    //     MySwal.fire({ icon: 'info', text: attendeeExists.message, color: "#000000", confirmButtonColor: "#003380" })
+    //     return
+    //   }
 
-      if (sponsorExists.value === true) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: sponsorExists.message, color: "#000000", confirmButtonColor: "#003380" })
-        return
-      }
-
-
-      if (formType === "register") {
-        const attendeeInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
-
-        return axios.post(process.env.REACT_APP_DB_URL, { attendeeInfo }, { headers: {'Content-Type': null} })
-        .then(response => {
-          // console.log(response.data);
-          showSWAL(response.data.title, response.data.message)
-          setFormIsSubmitting(false)
-          setRegistrantInfo({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            expectation: "",
-          });
-        })
-        .catch(postEntryError => {
-          console.log("postEntryError", postEntryError);
-          setFormIsSubmitting(false);
-        })
-      }
+    //   if (sponsorExists.value === true) {
+    //     setFormIsSubmitting(false)
+    //     MySwal.fire({ icon: 'info', text: sponsorExists.message, color: "#000000", confirmButtonColor: "#003380" })
+    //     return
+    //   }
 
 
-      const sponsorInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
+    //   if (formType === "register") {
+    //     const attendeeInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
+
+    //     return axios.post(process.env.REACT_APP_DB_URL, { attendeeInfo }, { headers: {'Content-Type': null} })
+    //     .then(response => {
+    //       // console.log(response.data);
+    //       showSWAL(response.data.title, response.data.message)
+    //       setFormIsSubmitting(false)
+    //       setRegistrantInfo({
+    //         "Email": "",
+    //         "Phone": "",
+    //         "Name Of Team": "",
+    //         "Idea Description": "",
+    //         "Link To Video": "",
+    //       });
+    //       setTeamMembers(["", "", "", "", ""])
+    //     })
+    //     .catch(postEntryError => {
+    //       console.log("postEntryError", postEntryError);
+    //       setFormIsSubmitting(false);
+    //     })
+    //   }
 
 
-      return axios.post(process.env.REACT_APP_DB_URL, { sponsorInfo }, { headers: {'Content-Type': null} })
-      .then(response => {
-        // console.log(response.data);
-        showSWAL(response.data.title, response.data.message)
-        setFormIsSubmitting(false)
-        setRegistrantInfo({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          expectation: "",
-        });
-      })
-      .catch(postEntryError => {
-        console.log("postEntryError", postEntryError);
-        setFormIsSubmitting(false);
-      })
-    })
-    .catch(fetchRegisteredParticipantsError => {
-      console.log('fetchRegisteredParticipantsError', fetchRegisteredParticipantsError.message);
-      setFormIsSubmitting(false)
-    })
+    //   const sponsorInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
+
+
+    //   return axios.post(process.env.REACT_APP_DB_URL, { sponsorInfo }, { headers: {'Content-Type': null} })
+    //   .then(response => {
+    //     // console.log(response.data);
+    //     showSWAL(response.data.title, response.data.message)
+    //     setFormIsSubmitting(false)
+    //     setRegistrantInfo({
+    //       "Email": "",
+    //       "Phone": "",
+    //       "Name Of Team": "",
+    //       "Idea Description": "",
+    //       "Link To Video": "",
+    //     });
+    //     setTeamMembers(["", "", "", "", ""])
+    //   })
+    //   .catch(postEntryError => {
+    //     console.log("postEntryError", postEntryError);
+    //     setFormIsSubmitting(false);
+    //   })
+    // })
+    // .catch(fetchRegisteredParticipantsError => {
+    //   console.log('fetchRegisteredParticipantsError', fetchRegisteredParticipantsError.message);
+    //   setFormIsSubmitting(false)
+    // })
   }
 
 
 
 
 
-  const checkIfAttendeeExists = (arrayToLoop) => {
-    const attendeeEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
-    const attendeePhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
+  // const checkIfTeamExists = (arrayToLoop) => {
+  //   const teamEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.Email);
+  //   const teamPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.Phone);
+  //   const teamNameExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo["Name Of Team"]);
 
 
-    if (attendeeEmailExists) {
-      return { value:true, message: `${registrantInfo.email} is already registered to an attendee`}
-    } else if (attendeePhoneExists) {
-      return { value:true, message: `${registrantInfo.phone} is already registered to an attendee`}
-    } else {
-      return { value:false, message: ""}
-    }
-  }
+  //   if (teamEmailExists) {
+  //     return { value:true, message: `${registrantInfo.Email} is already registered to an attendee`}
+  //   } else if (teamPhoneExists) {
+  //     return { value:true, message: `${registrantInfo.Phone} is already registered to an attendee`}
+  //   } else if (teamNameExists) {
+  //     return { value:true, message: `${registrantInfo["Name Of Team"]} is already registered to an attendee`}
+  //   } else {
+  //     return { value:false, message: ""}
+  //   }
+  // }
 
 
 
 
 
-  const checkIfSponsorExists = (arrayToLoop) => {
-    const sponsorEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
-    const sponsorPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
+  // const checkIfSponsorExists = (arrayToLoop) => {
+  //   const sponsorEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
+  //   const sponsorPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
 
 
-    if (sponsorEmailExists) {
-      return { value:true, message: `${registrantInfo.email} is already registered to a sponsor`}
-    } else if (sponsorPhoneExists) {
-      return { value:true, message: `${registrantInfo.phone} is already registered to a sponsor`}
-    } else {
-      return { value:false, message: ""}
-    }
-  }
+  //   if (sponsorEmailExists) {
+  //     return { value:true, message: `${registrantInfo.email} is already registered to a sponsor`}
+  //   } else if (sponsorPhoneExists) {
+  //     return { value:true, message: `${registrantInfo.phone} is already registered to a sponsor`}
+  //   } else {
+  //     return { value:false, message: ""}
+  //   }
+  // }
 
 
 
@@ -195,9 +225,9 @@ const RegisterPage = ({ MySwal }) => {
     <>
       <NavBar />
       
-      <section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white h-[35vh] flex justify-center items-center">
+      <section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white py-10 h-[35vh] flex justify-center items-center">
         <div className="px-4">
-          <h1 className="text-6xl" > &lt;CR8 HACKATHON TARABA 2023/&gt; </h1>
+          <h1 className="text-4xl sm:text-6xl" > &lt;CR8 HACKATHON TARABA 2023/&gt; </h1>
 
           <p className="text-right italic pr-8"> Season 1 </p>
         </div>
@@ -227,7 +257,7 @@ const RegisterPage = ({ MySwal }) => {
           <div className="px-4">
             <h2 className="font-semibold">Step 1: Team Information</h2>
 
-            <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+            <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
               <li>Start by naming your team. This is the first step towards creating your unique identity in the hackathon.</li>
               <li>Ensure you have the names of all your team members ready. We want to know who's on board!</li>
             </ul>
@@ -236,7 +266,7 @@ const RegisterPage = ({ MySwal }) => {
           <div className="px-4">
             <h2 className="font-semibold">Step 2:  Idea Presentation</h2>
 
-            <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+            <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
               <li>You'll need to provide a short and captivating description of your innovative idea. Think of it as your elevator pitch – why should your idea be showcased at the hackathon?</li>
               <li>Your idea should address a real-world problem or challenge, and your description should convey its potential impact and importance.</li>
             </ul>
@@ -245,7 +275,7 @@ const RegisterPage = ({ MySwal }) => {
           <div className="px-4">
             <h2 className="font-semibold">Step 3:  2-Minute Video</h2>
 
-            <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+            <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
               <li>Now comes the fun part! Create a 2-minute video introducing your idea. Be creative, persuasive, and engaging.</li>
               <li>Your video should explain your concept, its relevance, and why it deserves a spot in our hackathon.</li>
               <li>Share your passion and enthusiasm – this is your chance to shine!</li>
@@ -278,7 +308,7 @@ const RegisterPage = ({ MySwal }) => {
 
 
 
-      <section className="parent-size min-h-screen px-4 py-20">
+      <section className="parent-size min-h-screen sm:px-4 py-20">
         <div className="w-full max-w-3xl font-medium space-y-6">
           <aside className="relative">
             <input type="email" name="Email"
@@ -324,6 +354,52 @@ const RegisterPage = ({ MySwal }) => {
               peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:z-10 peer-focus:bg-white peer-focus:text-[#003380]"
             >Name of Team</label>
           </aside>
+
+          <aside className="relative border border-gray-400 p-4 space-y-5">
+            <p className="">What sector is your idea directed at?</p>
+
+            <section className="flex items-center gap-6 flex-wrap">
+              <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Health')}>
+                <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                  <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Health' && 'hidden'}`}></div>
+                </div>
+
+                <p className="">Health</p>
+              </div>
+              
+              <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Agriculture')}>
+                <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                  <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Agriculture' && 'hidden'}`}></div>
+                </div>
+
+                <p className="">Agriculture</p>
+              </div>
+              
+              <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Education')}>
+                <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                  <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Education' && 'hidden'}`}></div>
+                </div>
+
+                <p className="">Education</p>
+              </div>
+              
+              <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('E-Commerce')}>
+                <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                  <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'E-Commerce' && 'hidden'}`}></div>
+                </div>
+
+                <p className="">E-Commerce</p>
+              </div>
+              
+              <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Others')}>
+                <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                  <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Others' && 'hidden'}`}></div>
+                </div>
+
+                <p className="">Others</p>
+              </div>
+            </section>
+          </aside>
           
           <aside className="relative">
             <textarea name="Idea Description" rows="4"
@@ -358,6 +434,10 @@ const RegisterPage = ({ MySwal }) => {
                         memberName[index] = e.target.value
 
                         setTeamMembers(memberName)
+
+                        if (index + 1 === teamMembers.length && teamMembers.length < 7) {
+                          setTeamMembers(previousState => ([...previousState, ""]))
+                        }
                       }}
                     />
 
@@ -368,31 +448,18 @@ const RegisterPage = ({ MySwal }) => {
                     >Team Member {index + 1}</label>
                   </div>
 
-                  <div className="">
-                    <div
-                      className={`bg-green-600 text-white h-6 w-6 rounded-full flex items-center justify-center cursor-pointer shadow-sm shadow-black ${teamMembers.length - 1 > index && "hidden"}`}
-                      onClick={() => {
-                        if (teamMembers.length < 7) {
-                          setTeamMembers(previousState => ([...previousState, ""]))
-                        }
-                      }}
-                    >
-                      <i className="bi bi-plus"></i>
-                    </div>
+                  <div
+                    className={`bg-red-600 text-white h-6 w-6 rounded-full flex items-center justify-center cursor-pointer shadow-sm shadow-black`}
+                    onClick={() => {
+                      if (teamMembers.length > 5) {
+                        const updatedEntries = [...teamMembers]
+                        updatedEntries.splice(index, 1);
 
-                    <div
-                      className={`bg-red-600 text-white h-6 w-6 rounded-full flex items-center justify-center cursor-pointer shadow-sm shadow-black ${teamMembers.length - 1 === index && "hidden"}`}
-                      onClick={() => {
-                        if (teamMembers.length > 5) {
-                          const updatedEntries = [...teamMembers]
-                          updatedEntries.splice(index, 1);
-
-                          setTeamMembers(updatedEntries)
-                        }
-                      }}
-                    >
-                      <i className="bi bi-dash"></i>
-                    </div>
+                        setTeamMembers(updatedEntries)
+                      }
+                    }}
+                  >
+                    <i className="bi bi-dash"></i>
                   </div>
                 </aside>
               ))
@@ -419,7 +486,7 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="">
-            <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm pointer-events-none opacity-30 ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
+            <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
           </aside>
         </div>
       </section>
