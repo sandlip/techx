@@ -482,7 +482,7 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
 
           <aside className="text-base">
-            By clicking "Submit Detail", you agree to the <a href="/#" className="text-[#3fff00]">terms and conditions</a> of the Cr8 Hackathon Taraba
+            By clicking "Submit Detail", you agree to the <a href="/termscondition" className="text-[#3fff00]">terms and conditions</a> of the Cr8 Hackathon Taraba
           </aside>
           
           <aside className="">

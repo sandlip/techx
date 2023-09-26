@@ -6,6 +6,7 @@ import RegisterPage from "./page/RegisterPage";
 import TechExpose from "./page/TechExpose";
 import TechX from "./page/TechX";
 import Upcoming from "./page/Upcoming";
+import TermsCondition from './page/TermsCondition';
 
 
 
@@ -54,6 +55,11 @@ function App() {
               MySwal={MySwal}
             />}
           />
+
+          <Route 
+            path="/termscondition"
+            element={<TermsCondition />}
+            />
 
         </Routes>
       </BrowserRouter>
