@@ -99,7 +99,7 @@ function TermsCondition() {
 							</ul>
 						</ol>
 
-						<p className="">By participating in the Hackathon, you acknowledge that you have read, comprehended, and accepted these terms and conditions. Non-compliance with these terms may result in disqualification. If you have any questions or concerns, please contact the organizers at <a href="mailto:info@sandlip.com" className="text-[#3fff00]">info@sandlip.com</a>
+						<p className="text-base">By participating in the Hackathon, you acknowledge that you have read, comprehended, and accepted these terms and conditions. Non-compliance with these terms may result in disqualification. If you have any questions or concerns, please contact the organizers at <a href="mailto:info@sandlip.com" className="text-[#3fff00]">info@sandlip.com</a>
 						</p>
 					</section>
 				</div>
