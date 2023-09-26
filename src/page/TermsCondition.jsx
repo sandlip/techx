@@ -12,8 +12,8 @@ function TermsCondition() {
 						<p className="text-right italic pr-8"> Season 1</p>
 					</div>
       	</section>
-    		<div className="parent-size py-10 space-y-10">
-					<section className="">
+    		<div className="parent-size py-10 sm:space-y-10">
+					<section className="space-y-2">
 						<h2 className="text-2xl font-semibold">Terms and Conditions (T&C) for the CR8 Hackathon Taraba 2023</h2>
 						<p className="">Please carefully read and understand the following terms and conditions before participating in the CR8 Taraba Hackathon 2023. Your participation in the Hackathon signifies your agreement to adhere to these terms and conditions.</p>
 					</section>
