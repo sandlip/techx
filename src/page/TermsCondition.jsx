@@ -6,12 +6,6 @@ function TermsCondition() {
   return (
    	<>
    		<NavBar />
-			 	<section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white py-10 h-[35vh] flex justify-center items-center">
-					<div className="px-4">
-						<h1 className="text-4xl sm:text-6xl" > &lt;CR8 HACKATHON TARABA 2023/&gt; </h1>
-						<p className="text-right italic pr-8"> Season 1</p>
-					</div>
-      	</section>
     		<div className="parent-size py-10 sm:space-y-10 space-y-5">
 					<section className="space-y-2">
 						<h2 className="text-2xl font-semibold">Terms and Conditions (T&C) for the CR8 Hackathon Taraba 2023</h2>
