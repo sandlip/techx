@@ -6,20 +6,23 @@ import Footer from '../components/Footer';
 
 const eventsArray = [
   { title: 'CR8 HACKATHON',
-    date: '09-11.11.23',
+    date: '08-11.11.23',
     location: 'TARABA',
+    link: '/event/upcoming',
     summary: 'Leveraging problem-based learning practices to solve problems creatively and collaboratively.',
   },
 
   { title: 'TECH eXperience',
     date: '29.07.23',
     location: 'TARABA',
+    link: '/event/past/tech-experience',
     summary: 'Showcasing the latest advancements in technology, including Artificial Intelligence, digitalization, and the opportunity to network.',
   },
 
   { title: 'TECH EXPOSE',
     date: '29.04.23',
     location: 'TARABA',
+    link: '/event/past/tech-expose',
     summary: 'Providing a platform for attendees to learn about emerging trends and strategies for staying competitive in the tech industry.',
   },
 ]
@@ -29,7 +32,7 @@ const eventsArray = [
 
 
 
-const LandingPage = () => {
+const LandingPage = ({ allEvents, eventsCoverImages }) => {
   return (
     <>
       <NavBar />
@@ -49,17 +52,19 @@ const LandingPage = () => {
             <section className="grid grid-cols-12 gap-y-8 space-y-6 sm:space-y-0">
               { eventsArray.slice(0, 3).map((eventObj, index) => (
                   <aside key={index} className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
-                    <div className="">
-                      <h6 className="text-base"> {eventObj.date} </h6>
-                      <h5 className="text-3xl"> {eventObj.title} </h5>
+                    <a href={eventObj.link} className="">
+                      <div className="">
+                        <h6 className="text-base"> {eventObj.date} </h6>
+                        <h5 className="text-3xl"> {eventObj.title} </h5>
 
-                      <div className="flex justify-start items-center -mt-1">
-                        <i class="bi bi-arrow-right-short text-3xl"></i>
-                        <h6 className=""> {eventObj.location} </h6>
+                        <div className="flex justify-start items-center -mt-1">
+                          <i class="bi bi-arrow-right-short text-3xl"></i>
+                          <h6 className=""> {eventObj.location} </h6>
+                        </div>
                       </div>
-                    </div>
 
-                    <article className="tiny-text leading-relaxed"> {eventObj.summary} </article>
+                      <article className="tiny-text leading-relaxed"> {eventObj.summary} </article>
+                    </a>
                   </aside>
                 ))
               }
@@ -97,7 +102,7 @@ const LandingPage = () => {
           </aside>
 
           <aside className="col-span-3 group">
-            <a href="/techX" className="">
+            <a href="/event/past/tech-experience" className="">
               <img src="/img/TechX-1.JPG" alt="TECH eXperience" className="group-hover:opacity-80 h-56 w-full"/>
               
               <div className="space-y-2 flex flex-col">
@@ -118,7 +123,7 @@ const LandingPage = () => {
           </aside>
 
           <aside className="col-span-3 group">
-            <a href="/techExpose" className="">
+            <a href="/event/past/tech-expose" className="">
               <img src="/img/joinUs.jpg" alt="TECH EXPOSE" className="group-hover:opacity-80 h-56 w-full"/>
 
               <div className="space-y-2 flex flex-col">
