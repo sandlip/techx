@@ -1,12 +1,14 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import LandingPage from './page/LandingPage';
 import RegisterPage from "./page/RegisterPage";
-import TechExpose from "./page/TechExpose";
-import TechX from "./page/TechX";
 import Upcoming from "./page/Upcoming";
 import TermsCondition from './page/TermsCondition';
+import AboutPastEventPage from './page/AboutPastEventPage';
+import axios from 'axios';
+import SplashPage from "./page/SplashPage";
 
 
 
@@ -16,54 +18,88 @@ const MySwal = withReactContent(Swal)
 
 
 function App() {
+  const [allEvents, setAllEvents] = useState([])
+  const [eventsCoverImages, setEventsCoverImages] = useState([])
+  const [pageIsLoading, setPageIsLoading] = useState(true)
 
 
 
+
+
+  useEffect(() => {
+    fetchAllEvents()
+  }, [])
+  
+
+
+
+
+
+  const fetchAllEvents = async () => {
+    return axios.get(process.env.REACT_APP_DB_URL, {
+      headers: {'Content-Type': null},
+      params: {eventType: "getEventEntries"}
+    })
+    .then(response => {
+      // console.log('axios response', response.data);
+      const heroImages = [...response.data].map(eventItem => eventItem.heroImage)
+      setAllEvents(response.data)
+      setEventsCoverImages(heroImages)
+      setPageIsLoading(false)
+    })
+    .catch(axiosFetchAllEventsError => {
+      console.log('axiosFetchAllEventsError', axiosFetchAllEventsError);
+      setPageIsLoading(false)
+    })
+  }
 
 
 
 
 
   return (
-    <div className="text-lg">
-      <BrowserRouter>
-        <Routes>
-          
-          <Route
-            path="/"
-            element={<LandingPage />}
-          />
-          
-          <Route
-            path="/techX"
-            element={<TechX />}
-          />
-          
-          <Route 
-            path="/techExpose" 
-            element={<TechExpose />}
-          />
-
-          <Route 
-            path="/upcoming" 
-            element={<Upcoming />}
-          />
-
-          <Route
-            path="/:registrationType"
-            element={<RegisterPage
-              MySwal={MySwal}
-            />}
-          />
-
-          <Route 
-            path="/termscondition"
-            element={<TermsCondition />}
+    pageIsLoading === true ?
+      <SplashPage />
+    :
+      <div className="text-lg">
+        <BrowserRouter>
+          <Routes>
+            
+            <Route
+              path="/"
+              element={<LandingPage
+                allEvents={allEvents}
+                eventsCoverImages={eventsCoverImages}
+              />}
+            />
+            
+            <Route
+              path="/event/past/:eventTitle"
+              element={<AboutPastEventPage
+                allEvents={allEvents}
+              />}
             />
 
-        </Routes>
-      </BrowserRouter>
-    </div>
+            <Route 
+              path="/event/upcoming" 
+              element={<Upcoming />}
+            />
+
+            <Route
+              path="/cr8_registration"
+              element={<RegisterPage
+                MySwal={MySwal}
+              />}
+            />
+
+            <Route 
+              path="/termscondition"
+              element={<TermsCondition />}
+              />
+
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
