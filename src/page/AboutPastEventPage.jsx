@@ -64,6 +64,7 @@ const AboutPastEventPage = ({ allEvents }) => {
       <div className="min-h-screen overflow-hidden space-y-8">
         <section className="grid grid-cols-12">
           <aside className="col-span-12 sm:col-span-9 h-screen" style={{ background:`url('https://lh3.googleusercontent.com/pw/ADCreHf2GxM0XVjxw9YlBynkpYYHcPp-uqUWs8M2ofVxM1ziZFram1pkE1nJpcTgZ3nM4NzF8pmxGPdMqRIFxt9wkmXPbWSOMoAou6s_-nZAd1EN1NnODGM=w2400')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside>
+          {/* <aside className="col-span-12 sm:col-span-9 min-h-screen" style={{ background:`url('${eventInfo?.heroImage}')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside> */}
 
           <aside className="col-span-12 sm:col-span-3 h-full flex items-center">
             <div className="px-4 space-y-4">
@@ -80,9 +81,7 @@ const AboutPastEventPage = ({ allEvents }) => {
         <section className="px-4">
           <section className="py-24 relative parent-size grid grid-cols-12 gap-y-10 sm:gap-y-20">
             <aside className="col-span-12 sm:col-span-7 relative">
-              <img src="/img/joinUs.jpg" alt="" className="rounded-md w-full max-w-xl" />
-
-              <div className="absolute top-0 w-full max-w-xl h-full bg-black/25 rounded-md"></div>
+              <img src={eventInfo?.highLightImage} alt="" className="rounded-md w-full max-w-xl" />
 
               <div className="absolute -top-6 left-4 shadow-top sm:w-[12rem] rounded-md bg-white px-5 pb-3 font-bold">
                 <h6 className="gradient-text text-7xl">{ calculateNumberOfDaysForEvent(eventInfo?.eventStartDate, eventInfo?.eventEndDate) }</h6>
@@ -103,7 +102,7 @@ const AboutPastEventPage = ({ allEvents }) => {
             </aside>
 
             <aside className="col-span-12 sm:col-span-5 relative max-w-sm mx-auto order-3 sm:order-4">
-              <img src="/img/joinUs.jpg" alt="" className="sm:rounded-md" />
+              <img src={eventInfo?.teamImage} alt="" className="sm:rounded-md" />
 
               <div className="absolute -bottom-6 right-4 shadow-2xl rounded-md bg-white pb-3 px-5 font-bold">
                 <h6 className="gradient-text text-7xl">{ (eventInfo?.eventSpeakers)?.length }</h6>
