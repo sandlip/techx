@@ -81,7 +81,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
 
         <div className="sm:grid grid-cols-12 gap-10 p-7 space-y-10 sm:space-y-0">
           <aside className="col-span-3 group">
-            <a href="/upcoming" className="">
+            <a href="/event/upcoming" className="">
               <img src="/img/hackathon.jpg" alt="CR8 HACKATHON" className="group-hover:opacity-80 h-56 w-full"/>
 
               <div className="space-y-2 flex flex-col">
