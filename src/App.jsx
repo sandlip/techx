@@ -42,8 +42,10 @@ function App() {
     })
     .then(response => {
       // console.log('axios response', response.data);
-      const heroImages = [...response.data].map(eventItem => eventItem.heroImage)
-      setAllEvents(response.data)
+      const sortedEvents = sortEventsInAscOrder(response.data);
+
+      const heroImages = [...sortedEvents].map(eventItem => eventItem.heroImage)
+      setAllEvents(sortedEvents)
       setEventsCoverImages(heroImages)
       setPageIsLoading(false)
     })
@@ -52,6 +54,18 @@ function App() {
       setPageIsLoading(false)
     })
   }
+
+
+  const sortEventsInAscOrder = (eventsArray) => {
+    const sortedArrayOfEvents = [...eventsArray].sort((currentEvent, nextEvent) => nextEvent?.eventStartDate - currentEvent?.eventStartDate);
+
+    console.log('sortedArrayOfEvents', sortedArrayOfEvents);
+    return sortedArrayOfEvents;
+  }
+
+
+
+
 
 
 

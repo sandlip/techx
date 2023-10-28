@@ -130,6 +130,8 @@ const AboutPastEventPage = ({ allEvents }) => {
             </div>
           </div>
         </section>
+
+        <a href={eventInfo.eventReport} target='_blank' rel="noreferrer" className="fixed bottom-10 right-0 tiny-text font-medium bg-[#003380] text-white px-2 py-2 rounded-full">Download Report</a>
       </div>
       
       <Footer />
