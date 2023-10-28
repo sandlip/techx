@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -21,39 +21,39 @@ function App() {
   const [allEvents, setAllEvents] = useState([])
   const [eventsCoverImages, setEventsCoverImages] = useState([])
   const [pageIsLoading, setPageIsLoading] = useState(true)
-
-
-
-
-
-  useEffect(() => {
-    fetchAllEvents()
-  }, [])
   
 
 
 
 
 
-  const fetchAllEvents = async () => {
-    return axios.get(process.env.REACT_APP_DB_URL, {
-      headers: {'Content-Type': null},
-      params: {eventType: "getEventEntries"}
-    })
-    .then(response => {
-      // console.log('axios response', response.data);
-      const sortedEvents = sortEventsInAscOrder(response.data);
+  const fetchAllEvents = useCallback(
+    async () => {
+      return axios.get(process.env.REACT_APP_DB_URL, {
+        headers: {'Content-Type': null},
+        params: {eventType: "getEventEntries"}
+      })
+      .then(response => {
+        // console.log('axios response', response.data);
+        const sortedEvents = sortEventsInAscOrder(response.data);
 
-      const heroImages = [...sortedEvents].map(eventItem => eventItem.heroImage)
-      setAllEvents(sortedEvents)
-      setEventsCoverImages(heroImages)
-      setPageIsLoading(false)
-    })
-    .catch(axiosFetchAllEventsError => {
-      console.log('axiosFetchAllEventsError', axiosFetchAllEventsError);
-      setPageIsLoading(false)
-    })
-  }
+        const heroImages = [...sortedEvents].map(eventItem => eventItem.heroImage)
+        setAllEvents(sortedEvents)
+        setEventsCoverImages(heroImages)
+        setPageIsLoading(false)
+      })
+      .catch(axiosFetchAllEventsError => {
+        console.log('axiosFetchAllEventsError', axiosFetchAllEventsError);
+        setPageIsLoading(false)
+      })
+    }, []
+  )
+  
+
+
+  useEffect(() => {
+    fetchAllEvents()
+  }, [fetchAllEvents])
 
 
   const sortEventsInAscOrder = (eventsArray) => {
