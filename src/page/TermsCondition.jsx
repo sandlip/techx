@@ -8,7 +8,7 @@ function TermsCondition() {
    		<NavBar />
     		<div className="parent-size py-10 sm:space-y-10 space-y-5">
 					<section className="space-y-2">
-						<h2 className="text-2xl font-semibold">Terms and Conditions (T&C) for the CR8 Hackathon Taraba 2023</h2>
+						<h2 className="text-2xl font-semibold">Terms and Conditions (T&C) for the MODE&I Taraba Hackathon 2023</h2>
 						<p className="">Please carefully read and understand the following terms and conditions before participating in the CR8 Taraba Hackathon 2023. Your participation in the Hackathon signifies your agreement to adhere to these terms and conditions.</p>
 					</section>
 					<section className="space-y-10">

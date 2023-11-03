@@ -9,7 +9,7 @@ function Upcoming() {
 
     <section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white h-[35vh] flex justify-center items-center">
       <div className="px-4">
-        <h1 className="text-6xl" > &lt;CR8 HACKATHON TARABA 2023/&gt; </h1>
+        <h1 className="text-6xl" > &lt;MODE&I Taraba Hackathon 2023/&gt; </h1>
 
         <p className="text-right italic pr-8"> Season 1 </p>
       </div>
@@ -17,7 +17,7 @@ function Upcoming() {
 
     <section className="parent-size py-10 space-y-10">
       <section className="space-y-3">
-        <h2 className="text-4xl font-semibold">Welcome to the CR8 Hackathon Team Registration Page!</h2>
+        <h2 className="text-4xl font-semibold">Welcome to the MODE&I Taraba Hackathon 2023 Team Registration Page!</h2>
 
         <p className="">
           We are thrilled that you're gearing up to be a part of our exciting hackathon event. Get ready to unleash your creativity, innovation, and problem-solving skills as you embark on this incredible journey with us. Before we dive into the world of innovation and collaboration, let's make sure you're all set to register your team.
@@ -66,7 +66,7 @@ function Upcoming() {
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-2xl font-semibold">Submission Deadline: October 25, 2023</h2>
+        <h2 className="text-2xl font-semibold">Submission Deadline: November 10, 2023</h2>
 
         <div className="space-y-5">
           <p className="">
