@@ -5,8 +5,8 @@ import Footer from '../components/Footer';
 
 
 const eventsArray = [
-  { title: 'CR8 HACKATHON',
-    date: '08-11.11.23',
+  { title: 'MODE&I TARABA HACKATHON',
+    date: '13-15.11.23',
     location: 'TARABA',
     link: '/event/upcoming',
     summary: 'Leveraging problem-based learning practices to solve problems creatively and collaboratively.',
@@ -86,7 +86,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
 
               <div className="space-y-2 flex flex-col">
                 <div className="flex-1">
-                  <h1 className="text-3xl">CR8 HACKATHON</h1>
+                  <h1 className="text-3xl">MODE&I TARABA HACKATHON</h1>
 
                   <div className="flex justify-start items-center -mt-1">
                     <i class="bi bi-arrow-right-short text-3xl"></i>
