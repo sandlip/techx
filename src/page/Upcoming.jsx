@@ -89,7 +89,7 @@ function Upcoming() {
     </section>
 
     <section className="parent-size pb-24 pt-5">
-      <a href="/cr8_registration" className="bg-[#003380] px-20 py-4 rounded-md text-white font-medium">Register Here</a>
+      <a href="/mode&i_registration" className="bg-[#003380] px-20 py-4 rounded-md text-white font-medium">Register Here</a>
     </section>
 
     <Footer />

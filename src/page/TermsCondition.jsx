@@ -16,7 +16,7 @@ function TermsCondition() {
 							<li className="font-semibold">Eligibility:</li>
 							<ul className="list-disc px-10 space-y-3 sm:space-y-2">
 								<li className="">Participants must be at least 18 years old or the legal age of majority in their jurisdiction to participate in the Hackathon.</li>
-								<li className="">Participants must complete the registration process provided by the organizers at <a href="/registrationType" className="text-[#3fff00]">Register</a>.</li>
+								<li className="">Participants must complete the registration process provided by the organizers at <a href="/mode&i_registration" className="text-[#3fff00]">Register</a>.</li>
 								<li className="">Teams may participate, with each team member meeting the eligibility criteria.</li>
 								<li className="">Organizers, sponsors, and judges of the Hackathon, as well as their immediate family members, are not eligible to participate.</li>
 							</ul>
