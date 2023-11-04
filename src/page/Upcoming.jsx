@@ -65,9 +65,20 @@ function Upcoming() {
         </div>
       </section>
 
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Prize and Awards:</h2>
+        <div className="px-4">
+          <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+            <li>Total prize of One Million Naira in cash and awards to be won</li>
+            <li>Free Feeding and Accommodation</li>
+            <li>Free transportation for students from Federal university Wukari and Federal polytechnic Bali</li>
+            <li>Opportunity to be registered into the ministries Incubation program</li>
+          </ul>
+        </div>
+      </section>
+
       <section className="space-y-2">
         <h2 className="text-2xl font-semibold">Submission Deadline: November 10, 2023</h2>
-
         <div className="space-y-5">
           <p className="">
             Once you have all these elements ready, simply fill out the registration form with your team details, idea description, and upload your video. Make sure everything is as compelling as possible – your registration is your opportunity to make a great first impression!
