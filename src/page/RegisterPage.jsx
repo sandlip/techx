@@ -26,10 +26,11 @@ const RegisterPage = ({ MySwal }) => {
   
 
 
-  const postNewEntry = async (formType) => {
-    // console.log(Object.values(registrantInfo));
-    // setFormIsSubmitting(true)
+  const postNewEntry = async () => {
+    setFormIsSubmitting(true)
+    const linkIsValid = isValidYouTubeLink(registrantInfo["Link To Video"]);
 
+    const listOfTeam = teamMembers.filter(member => member !== "")
     for (const [key, value] of Object.entries(registrantInfo)) {
       if (!value) {
         setFormIsSubmitting(false)
@@ -44,147 +45,89 @@ const RegisterPage = ({ MySwal }) => {
       return
     }
 
-    const listOfTeam = teamMembers.filter(member => member !== "")
+    if (!linkIsValid) {
+      console.log('isValidYouTubeLink', linkIsValid);
+      setFormIsSubmitting(false)
+      MySwal.fire({ icon: 'info', text: `Please enter a valid link to your YouTube video`, color: "#000000", confirmButtonColor: "#003380" })
+      return
+    }
+    
     if (listOfTeam.length < 5) {
       setFormIsSubmitting(false)
       MySwal.fire({ icon: 'info', text: `You need minimum of 5 team members`, color: "#000000", confirmButtonColor: "#003380" })
       return
     }
 
-    const applicantsInfo = [...Object.values(registrantInfo), ideaSector, JSON.stringify(teamMembers), new Date()]
+
+    axios.get(`${process.env.REACT_APP_DB_URL}?eventType=getTeamsRecord`, { headers: {'Content-Type': null} })
+    .then(registeredTeams => {
+      const teamExists = checkIfTeamExists(registeredTeams.data)
+      
+      if (teamExists.value === true) {
+        setFormIsSubmitting(false)
+        MySwal.fire({ icon: 'info', text: teamExists.message, color: "#000000", confirmButtonColor: "#003380" })
+        return
+      }
 
 
-    return axios.post(process.env.REACT_APP_DB_URL, { applicantsInfo }, { headers: {'Content-Type': null} })
-    .then(response => {
-      console.log(response.data);
-      showSWAL(response.data.title, response.data.message)
-      setFormIsSubmitting(false)
-      setRegistrantInfo({
-        "Email": "",
-        "Phone": "",
-        "Name Of Team": "",
-        "Idea Description": "",
-        "Link To Video": "",
-      });
+      const applicantsInfo = [...Object.values(registrantInfo), ideaSector, JSON.stringify(teamMembers), new Date()]
 
-      setTeamMembers(["", "", "", "", ""])
+
+      return axios.post(process.env.REACT_APP_DB_URL, { applicantsInfo }, { headers: {'Content-Type': null} })
+      .then(response => {
+        console.log(response.data);
+        showSWAL(response.data.title, response.data.message)
+        setFormIsSubmitting(false)
+        setRegistrantInfo({
+          "Email": "",
+          "Phone": "",
+          "Name Of Team": "",
+          "Idea Description": "",
+          "Link To Video": "",
+        });
+
+        setIdeaSector("")
+        setTeamMembers(["", "", "", "", ""])
+      })
+      .catch(postEntryError => {
+        console.log("postEntryError", postEntryError);
+        setFormIsSubmitting(false);
+      })
     })
-    .catch(postEntryError => {
-      console.log("postEntryError", postEntryError);
-      setFormIsSubmitting(false);
+    .catch(getAllEntriesError => {
+      console.log('getAllEntriesError', getAllEntriesError.message);
+      return false
     })
-    
-
-    // axios.get(process.env.REACT_APP_DB_URL)
-    // .then(participants => {
-    //   const attendeeExists = checkIfTeamExists(participants.data.attendees)
-    //   const sponsorExists = checkIfSponsorExists(participants.data.sponsors)
-
-    //   if (attendeeExists.value === true) {
-    //     setFormIsSubmitting(false)
-    //     MySwal.fire({ icon: 'info', text: attendeeExists.message, color: "#000000", confirmButtonColor: "#003380" })
-    //     return
-    //   }
-
-    //   if (sponsorExists.value === true) {
-    //     setFormIsSubmitting(false)
-    //     MySwal.fire({ icon: 'info', text: sponsorExists.message, color: "#000000", confirmButtonColor: "#003380" })
-    //     return
-    //   }
-
-
-    //   if (formType === "register") {
-    //     const attendeeInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
-
-    //     return axios.post(process.env.REACT_APP_DB_URL, { attendeeInfo }, { headers: {'Content-Type': null} })
-    //     .then(response => {
-    //       // console.log(response.data);
-    //       showSWAL(response.data.title, response.data.message)
-    //       setFormIsSubmitting(false)
-    //       setRegistrantInfo({
-    //         "Email": "",
-    //         "Phone": "",
-    //         "Name Of Team": "",
-    //         "Idea Description": "",
-    //         "Link To Video": "",
-    //       });
-    //       setTeamMembers(["", "", "", "", ""])
-    //     })
-    //     .catch(postEntryError => {
-    //       console.log("postEntryError", postEntryError);
-    //       setFormIsSubmitting(false);
-    //     })
-    //   }
-
-
-    //   const sponsorInfo = [ `${registrantInfo.firstName} ${registrantInfo.lastName}`, registrantInfo.email, registrantInfo.phone, registrantInfo.expectation, new Date() ]
-
-
-    //   return axios.post(process.env.REACT_APP_DB_URL, { sponsorInfo }, { headers: {'Content-Type': null} })
-    //   .then(response => {
-    //     // console.log(response.data);
-    //     showSWAL(response.data.title, response.data.message)
-    //     setFormIsSubmitting(false)
-    //     setRegistrantInfo({
-    //       "Email": "",
-    //       "Phone": "",
-    //       "Name Of Team": "",
-    //       "Idea Description": "",
-    //       "Link To Video": "",
-    //     });
-    //     setTeamMembers(["", "", "", "", ""])
-    //   })
-    //   .catch(postEntryError => {
-    //     console.log("postEntryError", postEntryError);
-    //     setFormIsSubmitting(false);
-    //   })
-    // })
-    // .catch(fetchRegisteredParticipantsError => {
-    //   console.log('fetchRegisteredParticipantsError', fetchRegisteredParticipantsError.message);
-    //   setFormIsSubmitting(false)
-    // })
   }
 
 
 
 
 
-  // const checkIfTeamExists = (arrayToLoop) => {
-  //   const teamEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.Email);
-  //   const teamPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.Phone);
-  //   const teamNameExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo["Name Of Team"]);
+  const checkIfTeamExists = (arrayToLoop) => {
+    const teamEmailExists = arrayToLoop.find(({ email }) => email === registrantInfo.Email);
+    const teamPhoneExists = arrayToLoop.find(({ phone }) => phone === registrantInfo.Phone);
+    const teamNameExists = arrayToLoop.find(({ nameOfTeam }) => nameOfTeam === registrantInfo["Name Of Team"]);
 
 
-  //   if (teamEmailExists) {
-  //     return { value:true, message: `${registrantInfo.Email} is already registered to an attendee`}
-  //   } else if (teamPhoneExists) {
-  //     return { value:true, message: `${registrantInfo.Phone} is already registered to an attendee`}
-  //   } else if (teamNameExists) {
-  //     return { value:true, message: `${registrantInfo["Name Of Team"]} is already registered to an attendee`}
-  //   } else {
-  //     return { value:false, message: ""}
-  //   }
-  // }
+    if (teamEmailExists) {
+      return { value:true, message: `${registrantInfo.Email} is already registered to a team in our records`}
+    } else if (teamPhoneExists) {
+      return { value:true, message: `${registrantInfo.Phone} is already registered to a team in our records`}
+    } else if (teamNameExists) {
+      return { value:true, message: `${registrantInfo["Name Of Team"]} is already registered as a team in our records`}
+    } else {
+      return { value:false, message: ""}
+    }
+  }
 
 
 
 
-
-  // const checkIfSponsorExists = (arrayToLoop) => {
-  //   const sponsorEmailExists = arrayToLoop.find(({ Email }) => Email === registrantInfo.email);
-  //   const sponsorPhoneExists = arrayToLoop.find(({ Phone }) => Phone === registrantInfo.phone);
-
-
-  //   if (sponsorEmailExists) {
-  //     return { value:true, message: `${registrantInfo.email} is already registered to a sponsor`}
-  //   } else if (sponsorPhoneExists) {
-  //     return { value:true, message: `${registrantInfo.phone} is already registered to a sponsor`}
-  //   } else {
-  //     return { value:false, message: ""}
-  //   }
-  // }
-
-
+  const isValidYouTubeLink = (link) => {
+    const youtubeLinkPrefix = "https://youtu.be/";
+    return link.startsWith(youtubeLinkPrefix);
+  }
 
 
 
@@ -486,6 +429,7 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="">
+            {/* <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={getAllTeamEntries}>Submit Detail</button> */}
             <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
           </aside>
         </div>
