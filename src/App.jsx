@@ -100,7 +100,7 @@ function App() {
             />
 
             <Route
-              path="/mode&i_registration"
+              path="/cr8_registration"
               element={<RegisterPage
                 MySwal={MySwal}
               />}
