@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom"
-import axios from "axios";
+// import { useState } from "react";
+// import { useParams } from "react-router-dom"
+// import axios from "axios";
 
 import Footer from "../components/Footer"
 import NavBar from "../components/Navbar"
@@ -9,153 +9,153 @@ import NavBar from "../components/Navbar"
 
 
 const RegisterPage = ({ MySwal }) => {
-  const [formIsSubmitting, setFormIsSubmitting] = useState(false),
-        [ideaSector, setIdeaSector] = useState(''),
-        [teamMembers, setTeamMembers] = useState(["", "", "", "", ""]),
-        [registrantInfo, setRegistrantInfo] = useState({
-          "Email": "",
-          "Phone": "",
-          "Name Of Team": "",
-          "Idea Description": "",
-          "Link To Video": "",
-        }),
-        { registrationType } = useParams()
+  // const [formIsSubmitting, setFormIsSubmitting] = useState(false),
+  //       [ideaSector, setIdeaSector] = useState(''),
+  //       [teamMembers, setTeamMembers] = useState(["", "", "", "", ""]),
+  //       [registrantInfo, setRegistrantInfo] = useState({
+  //         "Email": "",
+  //         "Phone": "",
+  //         "Name Of Team": "",
+  //         "Idea Description": "",
+  //         "Link To Video": "",
+  //       }),
+  //       { registrationType } = useParams()
 
 
 
   
 
 
-  const postNewEntry = async () => {
-    setFormIsSubmitting(true)
-    const linkIsValid = isValidYouTubeLink(registrantInfo["Link To Video"]);
+  // const postNewEntry = async () => {
+  //   setFormIsSubmitting(true)
+  //   const linkIsValid = isValidYouTubeLink(registrantInfo["Link To Video"]);
 
-    const listOfTeam = teamMembers.filter(member => member !== "")
-    for (const [key, value] of Object.entries(registrantInfo)) {
-      if (!value) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
-        return
-      }
-    }
+  //   const listOfTeam = teamMembers.filter(member => member !== "")
+  //   for (const [key, value] of Object.entries(registrantInfo)) {
+  //     if (!value) {
+  //       setFormIsSubmitting(false)
+  //       MySwal.fire({ icon: 'info', text: `Please provide ${key}`, color: "#000000", confirmButtonColor: "#003380" })
+  //       return
+  //     }
+  //   }
 
-    if (!ideaSector) {
-      setFormIsSubmitting(false)
-      MySwal.fire({ icon: 'info', text: `Please select the sector your idea belongs to`, color: "#000000", confirmButtonColor: "#003380" })
-      return
-    }
+  //   if (!ideaSector) {
+  //     setFormIsSubmitting(false)
+  //     MySwal.fire({ icon: 'info', text: `Please select the sector your idea belongs to`, color: "#000000", confirmButtonColor: "#003380" })
+  //     return
+  //   }
 
-    if (!linkIsValid) {
-      console.log('isValidYouTubeLink', linkIsValid);
-      setFormIsSubmitting(false)
-      MySwal.fire({ icon: 'info', text: `Please enter a valid link to your YouTube video`, color: "#000000", confirmButtonColor: "#003380" })
-      return
-    }
+  //   if (!linkIsValid) {
+  //     console.log('isValidYouTubeLink', linkIsValid);
+  //     setFormIsSubmitting(false)
+  //     MySwal.fire({ icon: 'info', text: `Please enter a valid link to your YouTube video`, color: "#000000", confirmButtonColor: "#003380" })
+  //     return
+  //   }
     
-    if (listOfTeam.length < 5) {
-      setFormIsSubmitting(false)
-      MySwal.fire({ icon: 'info', text: `You need minimum of 5 team members`, color: "#000000", confirmButtonColor: "#003380" })
-      return
-    }
+  //   if (listOfTeam.length < 5) {
+  //     setFormIsSubmitting(false)
+  //     MySwal.fire({ icon: 'info', text: `You need minimum of 5 team members`, color: "#000000", confirmButtonColor: "#003380" })
+  //     return
+  //   }
 
 
-    axios.get(`${process.env.REACT_APP_DB_URL}?eventType=getTeamsRecord`, { headers: {'Content-Type': null} })
-    .then(registeredTeams => {
-      const teamExists = checkIfTeamExists(registeredTeams.data)
+  //   axios.get(`${process.env.REACT_APP_DB_URL}?eventType=getTeamsRecord`, { headers: {'Content-Type': null} })
+  //   .then(registeredTeams => {
+  //     const teamExists = checkIfTeamExists(registeredTeams.data)
       
-      if (teamExists.value === true) {
-        setFormIsSubmitting(false)
-        MySwal.fire({ icon: 'info', text: teamExists.message, color: "#000000", confirmButtonColor: "#003380" })
-        return
-      }
+  //     if (teamExists.value === true) {
+  //       setFormIsSubmitting(false)
+  //       MySwal.fire({ icon: 'info', text: teamExists.message, color: "#000000", confirmButtonColor: "#003380" })
+  //       return
+  //     }
 
 
-      const applicantsInfo = [...Object.values(registrantInfo), ideaSector, JSON.stringify(teamMembers), new Date()]
+  //     const applicantsInfo = [...Object.values(registrantInfo), ideaSector, JSON.stringify(teamMembers), new Date()]
 
 
-      return axios.post(process.env.REACT_APP_DB_URL, { applicantsInfo }, { headers: {'Content-Type': null} })
-      .then(response => {
-        console.log(response.data);
-        showSWAL(response.data.title, response.data.message)
-        setFormIsSubmitting(false)
-        setRegistrantInfo({
-          "Email": "",
-          "Phone": "",
-          "Name Of Team": "",
-          "Idea Description": "",
-          "Link To Video": "",
-        });
+  //     return axios.post(process.env.REACT_APP_DB_URL, { applicantsInfo }, { headers: {'Content-Type': null} })
+  //     .then(response => {
+  //       console.log(response.data);
+  //       showSWAL(response.data.title, response.data.message)
+  //       setFormIsSubmitting(false)
+  //       setRegistrantInfo({
+  //         "Email": "",
+  //         "Phone": "",
+  //         "Name Of Team": "",
+  //         "Idea Description": "",
+  //         "Link To Video": "",
+  //       });
 
-        setIdeaSector("")
-        setTeamMembers(["", "", "", "", ""])
-      })
-      .catch(postEntryError => {
-        console.log("postEntryError", postEntryError);
-        setFormIsSubmitting(false);
-      })
-    })
-    .catch(getAllEntriesError => {
-      console.log('getAllEntriesError', getAllEntriesError.message);
-      return false
-    })
-  }
-
-
-
-
-
-  const checkIfTeamExists = (arrayToLoop) => {
-    const teamEmailExists = arrayToLoop.find(({ email }) => email === registrantInfo.Email);
-    const teamPhoneExists = arrayToLoop.find(({ phone }) => phone === registrantInfo.Phone);
-    const teamNameExists = arrayToLoop.find(({ nameOfTeam }) => nameOfTeam === registrantInfo["Name Of Team"]);
-
-
-    if (teamEmailExists) {
-      return { value:true, message: `${registrantInfo.Email} is already registered to a team in our records`}
-    } else if (teamPhoneExists) {
-      return { value:true, message: `${registrantInfo.Phone} is already registered to a team in our records`}
-    } else if (teamNameExists) {
-      return { value:true, message: `${registrantInfo["Name Of Team"]} is already registered as a team in our records`}
-    } else {
-      return { value:false, message: ""}
-    }
-  }
+  //       setIdeaSector("")
+  //       setTeamMembers(["", "", "", "", ""])
+  //     })
+  //     .catch(postEntryError => {
+  //       console.log("postEntryError", postEntryError);
+  //       setFormIsSubmitting(false);
+  //     })
+  //   })
+  //   .catch(getAllEntriesError => {
+  //     console.log('getAllEntriesError', getAllEntriesError.message);
+  //     return false
+  //   })
+  // }
 
 
 
 
-  const isValidYouTubeLink = (link) => {
-    const youtubeLinkPrefix = "https://youtu.be/";
-    return link.startsWith(youtubeLinkPrefix);
-  }
+
+  // const checkIfTeamExists = (arrayToLoop) => {
+  //   const teamEmailExists = arrayToLoop.find(({ email }) => email === registrantInfo.Email);
+  //   const teamPhoneExists = arrayToLoop.find(({ phone }) => phone === registrantInfo.Phone);
+  //   const teamNameExists = arrayToLoop.find(({ nameOfTeam }) => nameOfTeam === registrantInfo["Name Of Team"]);
+
+
+  //   if (teamEmailExists) {
+  //     return { value:true, message: `${registrantInfo.Email} is already registered to a team in our records`}
+  //   } else if (teamPhoneExists) {
+  //     return { value:true, message: `${registrantInfo.Phone} is already registered to a team in our records`}
+  //   } else if (teamNameExists) {
+  //     return { value:true, message: `${registrantInfo["Name Of Team"]} is already registered as a team in our records`}
+  //   } else {
+  //     return { value:false, message: ""}
+  //   }
+  // }
 
 
 
-  const showSWAL = (messageTitle, messageText) => {
-    MySwal.fire({
-      titleText: messageTitle,
-      text: messageText,
-      color: "#000000",
-      confirmButtonText: "Done",
-      confirmButtonColor: "#003380",
-      background: '#fff url(/img/logo/sandlip-A.png) no-repeat left center / contain',
-      backdrop: `
-        rgba(0,0,0,0.7)
-        url("https://i.gifer.com/origin/03/03270abe66b1c66ef8832c57aa6da0c1.gif")
-        center bottom
-        no-repeat
-      `
-    })
-  }
+
+  // const isValidYouTubeLink = (link) => {
+  //   const youtubeLinkPrefix = "https://youtu.be/";
+  //   return link.startsWith(youtubeLinkPrefix);
+  // }
+
+
+
+  // const showSWAL = (messageTitle, messageText) => {
+  //   MySwal.fire({
+  //     titleText: messageTitle,
+  //     text: messageText,
+  //     color: "#000000",
+  //     confirmButtonText: "Done",
+  //     confirmButtonColor: "#003380",
+  //     background: '#fff url(/img/logo/sandlip-A.png) no-repeat left center / contain',
+  //     backdrop: `
+  //       rgba(0,0,0,0.7)
+  //       url("https://i.gifer.com/origin/03/03270abe66b1c66ef8832c57aa6da0c1.gif")
+  //       center bottom
+  //       no-repeat
+  //     `
+  //   })
+  // }
   
 
 
-  const updateField = (e) => {
-    setRegistrantInfo(previousState => ({
-      ...previousState,
-      [e.target.name]: e.target.value
-    }))
-  }
+  // const updateField = (e) => {
+  //   setRegistrantInfo(previousState => ({
+  //     ...previousState,
+  //     [e.target.name]: e.target.value
+  //   }))
+  // }
 
 
 
