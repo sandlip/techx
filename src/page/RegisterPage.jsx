@@ -167,8 +167,12 @@ const RegisterPage = ({ MySwal }) => {
   return (
     <>
       <NavBar />
+
+      <section className="min-h-screen text-2xl flex items-center justify-center">
+        This page is under maintenance. Kindly check back later.
+      </section>
       
-      <section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white py-10 h-[35vh] flex justify-center items-center">
+      {/* <section className="bg-gradient-to-r from-[#003380] via-gray-900 to-[#3fff00] text-white py-10 h-[35vh] flex justify-center items-center">
         <div className="px-4">
           <h1 className="text-4xl sm:text-6xl" > &lt;MODE&I Taraba Hackathon 2023/&gt; </h1>
 
@@ -441,11 +445,11 @@ const RegisterPage = ({ MySwal }) => {
           </aside>
           
           <aside className="">
-            {/* <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={getAllTeamEntries}>Submit Detail</button> */}
+            {/* <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={getAllTeamEntries}>Submit Detail</button>
             <button className={`bg-[#003380] text-white text-base w-60 py-3.5 rounded-sm ${formIsSubmitting === true && "opacity-50 pointer-events-none"}`} onClick={() => postNewEntry(registrationType)}>Submit Detail</button>
           </aside>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </>
