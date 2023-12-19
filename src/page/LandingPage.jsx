@@ -1,31 +1,7 @@
-import React from 'react';
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { format } from 'date-fns';
 
-
-
-const eventsArray = [
-  { title: 'MODE&I TARABA HACKATHON',
-    date: '13-15.11.23',
-    location: 'TARABA',
-    link: '/event/upcoming',
-    summary: 'Leveraging problem-based learning practices to solve problems creatively and collaboratively.',
-  },
-
-  { title: 'TECH eXperience',
-    date: '29.07.23',
-    location: 'TARABA',
-    link: '/event/past/tech-experience',
-    summary: 'Showcasing the latest advancements in technology, including Artificial Intelligence, digitalization, and the opportunity to network.',
-  },
-
-  { title: 'TECH EXPOSE',
-    date: '29.04.23',
-    location: 'TARABA',
-    link: '/event/past/tech-expose',
-    summary: 'Providing a platform for attendees to learn about emerging trends and strategies for staying competitive in the tech industry.',
-  },
-]
 
 
 
@@ -37,33 +13,33 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
     <>
       <NavBar />
       
-      <section className="w-full flex flex-col justify-centeroverflow-hidden" style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
-        <div className="bg-black/90 py-20 text-white">
+      <section className="flex flex-col w-full justify-centeroverflow-hidden" style={{ background:"url('/img/heroImg.png')", backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover" }}>
+        <div className="py-20 text-white bg-black/70">
           <div className="parent-size space-y-14">
-            <section className="massive-text tracking-wide sm:tracking-wider sm:-space-y-8">
+            <section className="tracking-wide massive-text sm:tracking-wider sm:-space-y-8">
               <h4 className="">EVENT</h4>
 
-              <div className="flex justify-start items-center">
+              <div className="flex items-center justify-start">
                 <i class="bi bi-arrow-right-short -ml-3 sm:-ml-8"></i>
                 <h4 className="">LISTING</h4>
               </div>
             </section>
 
-            <section className="grid grid-cols-12 gap-y-8 space-y-6 sm:space-y-0">
-              { eventsArray.slice(0, 3).map((eventObj, index) => (
-                  <aside key={index} className="col-span-12 sm:col-span-4 space-y-2 w-full max-w-sm">
-                    <a href={eventObj.link} className="">
+            <section className="grid grid-cols-12 space-y-6 gap-y-8 sm:space-y-0">
+              { allEvents.map((eventObj, index) => (
+                  <aside key={index} className="w-full max-w-sm col-span-12 space-y-2 sm:col-span-4">
+                    <a href={`event/past/${encodeURIComponent(eventObj.eventTitle).replace(/%20/g, '-').toLowerCase()}`} className="">
                       <div className="">
-                        <h6 className="text-base"> {eventObj.date} </h6>
-                        <h5 className="text-3xl"> {eventObj.title} </h5>
+                        <h6 className="text-base"> {format(new Date(eventObj.eventStartDate), 'dd.MM.yyyy')} </h6>
+                        <h5 className="text-3xl"> {eventObj.eventTitle} </h5>
 
-                        <div className="flex justify-start items-center -mt-1">
+                        <div className="flex items-center justify-start -mt-1">
                           <i class="bi bi-arrow-right-short text-3xl"></i>
-                          <h6 className=""> {eventObj.location} </h6>
+                          <h6 className=""> Taraba </h6>
                         </div>
                       </div>
 
-                      <article className="tiny-text leading-relaxed"> {eventObj.summary} </article>
+                      <article className="leading-relaxed tiny-text"> {eventObj.eventSummary} </article>
                     </a>
                   </aside>
                 ))
@@ -74,76 +50,35 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
       </section>
 
       <section className="sm:space-y-4">
-        <div className="flex justify-start items-center p-7">
+        <div className="flex items-center justify-start p-7">
           <i class="bi bi-arrow-right sm:text-9xl text-3xl"></i>
-          <h2 className="sm:text-9xl text-3xl">PAST</h2>
+          <h2 className="text-3xl sm:text-9xl">PAST</h2>
         </div>
 
-        <div className="sm:grid grid-cols-12 gap-10 p-7 space-y-10 sm:space-y-0">
-          <aside className="col-span-3 group">
-            <a href="/event/upcoming" className="">
-              <img src="/img/hackathon.jpg" alt="CR8 HACKATHON" className="group-hover:opacity-80 h-56 w-full"/>
-
-              <div className="space-y-2 flex flex-col">
-                <div className="flex-1">
-                  <h1 className="text-3xl">MODE&I TARABA HACKATHON</h1>
-
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h1 className="">TARABA</h1>
+        <div className="grid-cols-12 gap-10 space-y-10 sm:grid p-7 sm:space-y-0">
+          { allEvents.map((eventObj, index) => (
+              <aside key={index} className="col-span-3 group">
+                <a href={`event/past/${encodeURIComponent(eventObj.eventTitle).replace(/%20/g, '-').toLowerCase()}`} className="">
+                  <img src={eventObj.heroImage} alt={eventObj.eventTitle} className="w-full group-hover:opacity-80"/>
+    
+                  <div className="flex flex-col space-y-2">
+                    <div className="flex-1">
+                      <h1 className="text-3xl"> {eventObj.eventTitle} </h1>
+    
+                      <div className="flex items-center justify-start -mt-1">
+                        <i class="bi bi-arrow-right-short text-3xl"></i>
+                        <h1 className="">TARABA</h1>
+                      </div>
+                    </div>
+    
+                    <div className="text-base line-clamp-4"> {eventObj.eventSummary} </div>
                   </div>
-                </div>
-
-                <div className="text-base line-clamp-4">
-                  An event that brings together people from different backgrounds and skill sets to work collaboratively on solving problems and developing new ideas.
-                </div>
-              </div>
-            </a>
-          </aside>
-
-          <aside className="col-span-3 group">
-            <a href="/event/past/tech-experience" className="">
-              <img src="/img/TechX-1.JPG" alt="TECH eXperience" className="group-hover:opacity-80 h-56 w-full"/>
-              
-              <div className="space-y-2 flex flex-col">
-                <div className="flex-1">
-                  <h5 className="text-3xl">TECH eXperience</h5>
-                  
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h5 className="">TARABA</h5>
-                  </div>
-                </div>
-
-                <div className="text-base line-clamp-4">
-                  A gathering of industry leaders, experts, and enthusiasts to explore the latest advancements and opportunities in the realm of technology.
-                </div>
-              </div>
-            </a>
-          </aside>
-
-          <aside className="col-span-3 group">
-            <a href="/event/past/tech-expose" className="">
-              <img src="/img/joinUs.jpg" alt="TECH EXPOSE" className="group-hover:opacity-80 h-56 w-full"/>
-
-              <div className="space-y-2 flex flex-col">
-                <div className="flex-1">
-                  <h5 className="text-3xl">TECH EXPOSE</h5>
-                  
-                  <div className="flex justify-start items-center -mt-1">
-                    <i class="bi bi-arrow-right-short text-3xl"></i>
-                    <h5 className="">TARABA</h5>
-                  </div>
-                </div>
-
-                <div className="text-base line-clamp-4">
-                  A dive into the latest trends and advancements, showcasing the transformative power of technology. Connect with like-minded individuals for growth and collaboration.
-                </div>
-              </div>
-            </a>
-          </aside>
+                </a>
+              </aside>
+            ))
+          }
           
-          <div className="col-span-3 flex flex-col items-center">
+          <div className="flex flex-col items-center col-span-3">
             <div className="">
               <img src="/img/joinUs.jpg" alt="" className="" />
             </div>

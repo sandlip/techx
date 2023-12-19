@@ -61,12 +61,12 @@ const AboutPastEventPage = ({ allEvents }) => {
     <>
       <NavBar />
       
-      <div className="min-h-screen overflow-hidden space-y-8">
+      <div className="min-h-screen space-y-8 overflow-hidden">
         <section className="grid grid-cols-12">
-          <aside className="col-span-12 sm:col-span-9 h-screen" style={{ background:`url('https://lh3.googleusercontent.com/pw/ADCreHf2GxM0XVjxw9YlBynkpYYHcPp-uqUWs8M2ofVxM1ziZFram1pkE1nJpcTgZ3nM4NzF8pmxGPdMqRIFxt9wkmXPbWSOMoAou6s_-nZAd1EN1NnODGM=w2400')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside>
-          {/* <aside className="col-span-12 sm:col-span-9 min-h-screen" style={{ background:`url('${eventInfo?.heroImage}')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside> */}
+          {/* <aside className="h-screen col-span-12 sm:col-span-9" style={{ background:`url('https://lh3.googleusercontent.com/pw/ADCreHf2GxM0XVjxw9YlBynkpYYHcPp-uqUWs8M2ofVxM1ziZFram1pkE1nJpcTgZ3nM4NzF8pmxGPdMqRIFxt9wkmXPbWSOMoAou6s_-nZAd1EN1NnODGM=w2400')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside> */}
+          <aside className="min-h-screen col-span-12 bg-no-repeat bg-cover sm:col-span-9" style={{ background:`url('${eventInfo?.heroImage}')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></aside>
 
-          <aside className="col-span-12 sm:col-span-3 h-full flex items-center">
+          <aside className="flex items-center h-full col-span-12 sm:col-span-3">
             <div className="px-4 space-y-4">
               <h1 className="text-6xl">{eventInfo.eventTitle}</h1>
 
@@ -79,9 +79,9 @@ const AboutPastEventPage = ({ allEvents }) => {
         </section>
 
         <section className="px-4">
-          <section className="py-24 relative parent-size grid grid-cols-12 gap-y-10 sm:gap-y-20">
-            <aside className="col-span-12 sm:col-span-7 relative">
-              <img src={eventInfo?.highLightImage} alt="" className="rounded-md w-full max-w-xl" />
+          <section className="relative grid grid-cols-12 py-24 parent-size gap-y-10 sm:gap-y-20">
+            <aside className="relative col-span-12 sm:col-span-7">
+              <img src={eventInfo?.highLightImage} alt="" className="w-full max-w-xl rounded-md" />
 
               <div className="absolute -top-6 left-4 shadow-top sm:w-[12rem] rounded-md bg-white px-5 pb-3 font-bold">
                 <h6 className="gradient-text text-7xl">{ calculateNumberOfDaysForEvent(eventInfo?.eventStartDate, eventInfo?.eventEndDate) }</h6>
@@ -89,39 +89,39 @@ const AboutPastEventPage = ({ allEvents }) => {
               </div>
             </aside>
 
-            <aside className="col-span-12 sm:col-span-5 p-2">
+            <aside className="col-span-12 p-2 sm:col-span-5">
               <h2 className="subHeading-text">{ eventInfo?.eventTitle } Taraba</h2>
               <h2 className="subHeading-text">{ formatDate(eventInfo?.eventStartDate).split(',')[1] }</h2>
             </aside>
             
 
-            <aside className="col-span-12 sm:col-span-7 flex flex-col gap-y-14 sm:gap-y-0 order-4 sm:order-3 mt-14 sm:mt-0">
-              <article className="sm:flex-1 w-full max-w-xl">
+            <aside className="flex flex-col order-4 col-span-12 sm:col-span-7 gap-y-14 sm:gap-y-0 sm:order-3 mt-14 sm:mt-0">
+              <article className="w-full max-w-xl sm:flex-1">
                 Connect with like-minded individuals, professionals, and community leaders. This event offers a platform for meaningful conversations and collaborations, fostering a stronger and more vibrant community. Don't miss out on this incredible event! Mark your calendars, spread the word, and get ready to join us for a day of connection, celebration, and community building. We can't wait to see you there!
               </article>
             </aside>
 
-            <aside className="col-span-12 sm:col-span-5 relative max-w-sm mx-auto order-3 sm:order-4">
+            <aside className="relative order-3 max-w-sm col-span-12 mx-auto sm:col-span-5 sm:order-4">
               <img src={eventInfo?.teamImage} alt="" className="sm:rounded-md" />
 
-              <div className="absolute -bottom-6 right-4 shadow-2xl rounded-md bg-white pb-3 px-5 font-bold">
+              <div className="absolute px-5 pb-3 font-bold bg-white rounded-md shadow-2xl -bottom-6 right-4">
                 <h6 className="gradient-text text-7xl">{ (eventInfo?.eventSpeakers)?.length }</h6>
-                <h6 className="text-base text-black mt-2">Experienced Speakers</h6> 
+                <h6 className="mt-2 text-base text-black">Experienced Speakers</h6> 
               </div>
             </aside>
           </section>
         
-          <div className="w-full max-w-5xl mx-auto space-y-14 pb-24">
+          <div className="w-full max-w-5xl pb-24 mx-auto space-y-14">
             <h4 className="digitalFont subHeading-text">{ (eventInfo?.eventSpeakers)?.length } SPEAKERS</h4>
 
             <div className="grid grid-cols-12 gap-y-8 sm:gap-x-8">
               {(eventInfo?.eventSpeakers)?.map((eventSpeaker, index) => (
-                <aside key={index} className="col-span-12 sm:col-span-4 bg-white rounded-md overflow-hidden">
-                  <section className="h-96 overflow-hidden">
+                <aside key={index} className="col-span-12 overflow-hidden bg-white rounded-md sm:col-span-4">
+                  <section className="overflow-hidden h-96">
                     <div className="w-full h-96" style={{ background: `url('${eventSpeaker?.image}')`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
                   </section>
 
-                  <div className="p-4 text-black">
+                  <div className="py-4 text-black">
                     <h1 className="text-2xl font-semibold">{eventSpeaker.name}</h1>
                     <h6 className="text-base leading-none">{eventSpeaker.office}</h6>
                   </div>
