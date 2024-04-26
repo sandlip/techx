@@ -46,7 +46,7 @@ const Footer = () => {
 
               <div className="col-span-12 sm:col-span-4 grid grid-cols-12 p-2 items-center">
                 <div className="col-span-2 h-8 w-8 rounded-full border text-xl flex items-center justify-center">
-                  <i class="bi bi-geo-alt"></i>
+                  <i className="bi bi-geo-alt"></i>
                 </div>
 
                 <div className="text-sm text-left col-span-10">

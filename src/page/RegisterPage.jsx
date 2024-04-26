@@ -172,17 +172,17 @@ const RegisterPage = ({ MySwal }) => {
         <div className="px-4">
           <h1 className="text-4xl sm:text-6xl" > &lt;MODE&I Taraba Hackathon 2023/&gt; </h1>
 
-          <p className="text-right italic pr-8"> Season 1 </p>
+          <p className="pr-8 italic text-right"> Season 1 </p>
         </div>
       </section>
 
       {(Date.now() > (1699743599 * 1000)) ?
-        <section className="min-h-screen flex items-center justify-center text-2xl font-medium">
+        <section className="flex items-center justify-center min-h-screen text-2xl font-medium">
           Registration for the MODE&I Hackathon is closed.
         </section>
       :
         <>
-          <section className="parent-size py-10 space-y-10">
+          <section className="py-10 space-y-10 parent-size">
             <section className="space-y-3">
               <h2 className="text-4xl font-semibold">Welcome to the MODE&I Taraba Hackathon 2023 Team Registration Page!</h2>
 
@@ -194,7 +194,7 @@ const RegisterPage = ({ MySwal }) => {
             <section className="">
               <h2 className="text-2xl font-semibold">Team Formation:</h2>
 
-              <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+              <ul className="px-10 space-y-3 list-disc sm:space-y-2">
                 <li>Each team can consist of a minimum of 5 and a maximum of 7 participants.</li>
                 <li>Choose your team members wisely; they will be your partners in this adventure.</li>
               </ul>
@@ -206,7 +206,7 @@ const RegisterPage = ({ MySwal }) => {
               <div className="px-4">
                 <h2 className="font-semibold">Step 1: Team Information</h2>
 
-                <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
+                <ul className="pl-6 space-y-3 list-disc sm:px-10 sm:space-y-2">
                   <li>Start by naming your team. This is the first step towards creating your unique identity in the hackathon.</li>
                   <li>Ensure you have the names of all your team members ready. We want to know who's on board!</li>
                 </ul>
@@ -215,7 +215,7 @@ const RegisterPage = ({ MySwal }) => {
               <div className="px-4">
                 <h2 className="font-semibold">Step 2:  Idea Presentation</h2>
 
-                <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
+                <ul className="pl-6 space-y-3 list-disc sm:px-10 sm:space-y-2">
                   <li>You'll need to provide a short and captivating description of your innovative idea. Think of it as your elevator pitch – why should your idea be showcased at the hackathon?</li>
                   <li>Your idea should address a real-world problem or challenge, and your description should convey its potential impact and importance.</li>
                 </ul>
@@ -224,7 +224,7 @@ const RegisterPage = ({ MySwal }) => {
               <div className="px-4">
                 <h2 className="font-semibold">Step 3:  2-Minute Video</h2>
 
-                <ul className="list-disc pl-6 sm:px-10 space-y-3 sm:space-y-2">
+                <ul className="pl-6 space-y-3 list-disc sm:px-10 sm:space-y-2">
                   <li>Now comes the fun part! Create a 2-minute video introducing your idea. Be creative, persuasive, and engaging.</li>
                   <li>Your video should explain your concept, its relevance, and why it deserves a spot in our hackathon.</li>
                   <li>Share your passion and enthusiasm – this is your chance to shine!</li>
@@ -235,7 +235,7 @@ const RegisterPage = ({ MySwal }) => {
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold">Prize and Awards:</h2>
               <div className="px-4">
-                <ul className="list-disc px-10 space-y-3 sm:space-y-2">
+                <ul className="px-10 space-y-3 list-disc sm:space-y-2">
                   <li>Total prize of One Million Naira in cash and awards to be won</li>
                   <li>Free Feeding and Accommodation</li>
                   <li>Free transportation for students from Federal university Wukari and Federal polytechnic Bali</li>
@@ -267,8 +267,8 @@ const RegisterPage = ({ MySwal }) => {
             </section>
           </section>
 
-          <section className="parent-size min-h-screen sm:px-4 py-20">
-            <div className="w-full max-w-3xl font-medium space-y-6">
+          <section className="min-h-screen py-20 parent-size sm:px-4">
+            <div className="w-full max-w-3xl space-y-6 font-medium">
               <aside className="relative">
                 <input type="email" name="Email"
                   className={`focus:outline-[#003380] peer placeholder:opacity-0 bg-transparent border border-gray-400 rounded-sm py-2.5 px-3 w-full`}
@@ -314,12 +314,12 @@ const RegisterPage = ({ MySwal }) => {
                 >Name of Team</label>
               </aside>
 
-              <aside className="relative border border-gray-400 p-4 space-y-5">
+              <aside className="relative p-4 space-y-5 border border-gray-400">
                 <p className="">What sector is your idea directed at?</p>
 
-                <section className="flex items-center gap-6 flex-wrap">
+                <section className="flex flex-wrap items-center gap-6">
                   <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Health')}>
-                    <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                    <div className="flex items-center justify-center w-5 h-5 border border-gray-400 rounded-full group-hover:border-green-400">
                       <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Health' && 'hidden'}`}></div>
                     </div>
 
@@ -327,7 +327,7 @@ const RegisterPage = ({ MySwal }) => {
                   </div>
                   
                   <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Agriculture')}>
-                    <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                    <div className="flex items-center justify-center w-5 h-5 border border-gray-400 rounded-full group-hover:border-green-400">
                       <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Agriculture' && 'hidden'}`}></div>
                     </div>
 
@@ -335,7 +335,7 @@ const RegisterPage = ({ MySwal }) => {
                   </div>
                   
                   <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Education')}>
-                    <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                    <div className="flex items-center justify-center w-5 h-5 border border-gray-400 rounded-full group-hover:border-green-400">
                       <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Education' && 'hidden'}`}></div>
                     </div>
 
@@ -343,7 +343,7 @@ const RegisterPage = ({ MySwal }) => {
                   </div>
                   
                   <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('E-Commerce')}>
-                    <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                    <div className="flex items-center justify-center w-5 h-5 border border-gray-400 rounded-full group-hover:border-green-400">
                       <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'E-Commerce' && 'hidden'}`}></div>
                     </div>
 
@@ -351,7 +351,7 @@ const RegisterPage = ({ MySwal }) => {
                   </div>
                   
                   <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setIdeaSector('Others')}>
-                    <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-green-400 flex items-center justify-center">
+                    <div className="flex items-center justify-center w-5 h-5 border border-gray-400 rounded-full group-hover:border-green-400">
                       <div className={`h-3 w-3 rounded-full bg-black ${ideaSector !== 'Others' && 'hidden'}`}></div>
                     </div>
 

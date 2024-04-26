@@ -20,7 +20,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
               <h4 className="">EVENT</h4>
 
               <div className="flex items-center justify-start">
-                <i class="bi bi-arrow-right-short -ml-3 sm:-ml-8"></i>
+                <i className="bi bi-arrow-right-short -ml-3 sm:-ml-8"></i>
                 <h4 className="">LISTING</h4>
               </div>
             </section>
@@ -34,7 +34,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
                         <h5 className="text-3xl"> {eventObj.eventTitle} </h5>
 
                         <div className="flex items-center justify-start -mt-1">
-                          <i class="bi bi-arrow-right-short text-3xl"></i>
+                          <i className="bi bi-arrow-right-short text-3xl"></i>
                           <h6 className=""> Taraba </h6>
                         </div>
                       </div>
@@ -51,7 +51,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
 
       <section className="sm:space-y-4">
         <div className="flex items-center justify-start p-7">
-          <i class="bi bi-arrow-right sm:text-9xl text-3xl"></i>
+          <i className="bi bi-arrow-right sm:text-9xl text-3xl"></i>
           <h2 className="text-3xl sm:text-9xl">PAST</h2>
         </div>
 
@@ -66,7 +66,7 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
                       <h1 className="text-3xl"> {eventObj.eventTitle} </h1>
     
                       <div className="flex items-center justify-start -mt-1">
-                        <i class="bi bi-arrow-right-short text-3xl"></i>
+                        <i className="bi bi-arrow-right-short text-3xl"></i>
                         <h1 className="">TARABA</h1>
                       </div>
                     </div>
@@ -83,8 +83,8 @@ const LandingPage = ({ allEvents, eventsCoverImages }) => {
               <img src="/img/joinUs.jpg" alt="" className="" />
             </div>
             <div className="">
-              <svg xmlns="http://www.w3.org/2000/svg" class="animate-bounce h-full w-full" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 3a1 1 0 0 1 .707.293l4 4a1 1 0 0 1-1.414 1.414L11 6.414V16a1 1 0 1 1-2 0V6.414L5.707 8.707A1 1 0 0 1 4.293 7.293l4-4A1 1 0 0 1 10 3z" clip-rule="evenodd" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce h-full w-full" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 3a1 1 0 0 1 .707.293l4 4a1 1 0 0 1-1.414 1.414L11 6.414V16a1 1 0 1 1-2 0V6.414L5.707 8.707A1 1 0 0 1 4.293 7.293l4-4A1 1 0 0 1 10 3z" clipRule="evenodd" />
               </svg>
             </div>
           </div>
