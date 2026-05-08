@@ -1,10 +1,122 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  /* Harlequin */
+  --color-harlequin-50: #eeffe4;
+  --color-harlequin-100: #d8ffc4;
+  --color-harlequin-200: #b3ff90;
+  --color-harlequin-300: #81ff50;
+  --color-harlequin-400: #3fff00; /* This is the base color for Harlequin */
+  --color-harlequin-500: #33e600;
+  --color-harlequin-600: #24b800;
+  --color-harlequin-700: #1b8b00;
+  --color-harlequin-800: #1a6d07;
+  --color-harlequin-900: #195c0b;
+  --color-harlequin-950: #073400;
+
+  /* Catalina */
+  --color-catalina-50: #e9f9ff;
+  --color-catalina-100: #cef0ff;
+  --color-catalina-200: #a7e7ff;
+  --color-catalina-300: #6bdcff;
+  --color-catalina-400: #26c4ff;
+  --color-catalina-500: #009cff;
+  --color-catalina-600: #0072ff;
+  --color-catalina-700: #0057ff;
+  --color-catalina-800: #004ae6;
+  --color-catalina-900: #0044b3;
+  --color-catalina-950: #003380; /* This is the base color for Catalina */
+
+  /* Woodsmoke */
+  --color-woodsmoke-50: #fafafa;
+  --color-woodsmoke-100: #f5f5f5;
+  --color-woodsmoke-200: #e6e6e6;
+  --color-woodsmoke-300: #d3d3d3;
+  --color-woodsmoke-400: #a3a3a3;
+  --color-woodsmoke-500: #727272;
+  --color-woodsmoke-600: #535353;
+  --color-woodsmoke-700: #404040;
+  --color-woodsmoke-800: #272727;
+  --color-woodsmoke-900: #1a1a1a;
+  --color-woodsmoke-950: #0b0b0b;
+
+  /* Custom background images */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  --background-image-stripes: repeating-linear-gradient(-45deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 3px
+  );
+  --background-image-mesh: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 50px,
+    rgba(255, 255, 255, 0.05) 50px,
+    rgba(255, 255, 255, 0.05) 51px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(255, 255, 255, 0.05) 50px,
+    rgba(255, 255, 255, 0.05) 51px
+  );
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+@layer components {
+  main {
+    @apply w-full;
+  }
+
+  .app-container {
+    @apply w-full max-w-[85vw] mx-auto py-7 sm:px-6 lg:px-8;
+  }
+
+  /* ─── base ─────────────────────────────────────────────── */
+  .pill {
+    @apply inline-flex items-center justify-center py-0.5 px-2 rounded-md text-xs font-medium whitespace-nowrap leading-normal bg-woodsmoke-100 dark:text-woodsmoke-900;
+  }
+
+  .bg-primary {
+    @apply bg-harlequin-400;
+  }
+
+  .bg-secondary {
+    @apply bg-catalina-950;
+  }
+
+  .text-primary {
+    @apply text-harlequin-400;
+  }
+
+  .text-secondary {
+    @apply text-catalina-950;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-none text-sm font-semibold leading-normal border-2 border-black cursor-pointer transition whitespace-nowrap no-underline disabled:opacity-55 disabled:cursor-not-allowed outline-none;
+  }
+
+  .link {
+    @apply bg-transparent hover:text-harlequin-400;
+  }
+
+  /* ─── Button colour variants ────────────────────────────────── */
+  .btn-primary {
+    @apply bg-harlequin-400 text-black hover:bg-harlequin-500;
+  }
+
+  .btn-secondary {
+    @apply bg-catalina-950 text-white hover:bg-catalina-900;
+  }
+
+  .btn-ghost {
+    @apply bg-stone-300/50 hover:bg-stone-200;
+  }
+
+  .border-box {
+    @apply border-2 border-black rounded-none;
+  }
 }
