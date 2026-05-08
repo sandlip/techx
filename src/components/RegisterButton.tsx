@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { PiArrowUpRight } from 'react-icons/pi'
 
 const RegisterButton = ({ buttonClass, label, arrowClass = "py-2.5 px-3.5" }: { buttonClass: string; label: string; arrowClass?: string }) => {
-  const registrationLink = ""
+  const registrationLink = "https://sandlip.com"
 
   return (
     <Link href={registrationLink} className="flex items-center group cursor-not-allowed"
