@@ -53,7 +53,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl">
-              July 25 - July 25 2024. Virtual Hackathon + Physical Conference in Jalingo, Taraba State
+              July 25 - July 25 2026. Virtual Hackathon + Physical Conference in Jalingo, Taraba State
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
