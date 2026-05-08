@@ -42,7 +42,7 @@ export default function HomePage() {
 
       {/* ══ HERO ════════════════════════════════════════════════════ */}
       <section className="bg-cover bg-center border-b-8 border-harlequin-400" style={{ backgroundImage: `url('${HERO}')` }}>
-        <aside className="bg-black/75 bg-mesh w-full h-[75vh] px-6 py-12">
+        <aside className="bg-black/75 bg-mesh w-full h-[80vh] px-6 py-12">
           <div className="app-container text-white flex flex-col items-start justify-center h-full">
             <span className="bg-harlequin-400/13 border-2 border-harlequin-400 font-semibold text-lg px-4 py-1.5">
               TechX'26
@@ -52,11 +52,11 @@ export default function HomePage() {
               DECENTRALISED<br />CONTRIBUTIONS OPEN<br />SOURCE AND WEB3
             </h1>
 
-            <p className="text-lg">
+            <p className="text-xl">
               July 25 - July 25 2024. Virtual Hackathon + Physical Conference in Jalingo, Taraba State
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <RegisterButton
                 label="Register Now"
                 buttonClass="btn btn-primary bg-stripes py-2.5 px-6"
@@ -97,7 +97,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ WHAT TO EXPECT ══════════════════════════════════════════ */}
-      <section className="bg-catalina-950/10 py-10">
+      <section id="highlight" className="bg-catalina-950/10 py-10">
         <div className="app-container space-y-12">
           <RaisedPill label='Highlight' />
           
@@ -203,7 +203,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ GALLERY ═════════════════════════════════════════════════ */}
-      <section className="px-6 py-10">
+      <section id="gallery" className="px-6 py-10">
         <div className="app-container space-y-12">
           <RaisedPill label="Gallery" />
           
