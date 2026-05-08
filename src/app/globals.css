@@ -56,16 +56,16 @@ html {
   --background-image-mesh: repeating-linear-gradient(
     0deg,
     transparent,
-    transparent 50px,
-    rgba(255, 255, 255, 0.05) 50px,
-    rgba(255, 255, 255, 0.05) 51px
+    transparent 35px,
+    rgba(255, 255, 255, 0.05) 35px,
+    rgba(255, 255, 255, 0.05) 36px
   ),
   repeating-linear-gradient(
     90deg,
     transparent,
-    transparent 50px,
-    rgba(255, 255, 255, 0.05) 50px,
-    rgba(255, 255, 255, 0.05) 51px
+    transparent 35px,
+    rgba(255, 255, 255, 0.05) 35px,
+    rgba(255, 255, 255, 0.05) 36px
   );
 }
 
