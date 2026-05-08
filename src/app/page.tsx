@@ -42,7 +42,7 @@ export default function HomePage() {
 
       {/* ══ HERO ════════════════════════════════════════════════════ */}
       <section className="bg-cover bg-center border-b-8 border-harlequin-400" style={{ backgroundImage: `url('${HERO}')` }}>
-        <aside className="bg-black/75 bg-mesh w-full h-[80vh] px-6 py-12">
+        <aside className="bg-black/90 bg-mesh w-full h-[80vh] px-6 py-12">
           <div className="app-container text-white flex flex-col items-start justify-center h-full">
             <span className="bg-harlequin-400/13 border-2 border-harlequin-400 font-semibold text-lg px-4 py-1.5">
               TechX'26
