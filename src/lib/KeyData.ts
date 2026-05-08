@@ -87,23 +87,47 @@ export const SponsorshipTiers = [
 
 export const FAQs = [
   {
-    question: 'What is this all about?',
-    answer: 'TechX is an innovation Experience for builders and creators bringing ideas to life through hackathons and collaboration.'
+    question: "What is TechX'26?",
+    answer: "TechX'26 is Sandlip's flagship event. It combines a 25-day virtual hackathon with a physical conference finale in Jalingo, Taraba State. The focus is building decentralised solutions and open source tools."
   },
   {
-    question: 'What is the joining group?',
-    answer: 'Join our community via the registration link. You will receive Discord and Telegram access upon confirmation.'
+    question: "When is the event?",
+    answer: "Hackathon runs 25 June to 19 July 2026. Judging takes place 20 to 24 July 2026. Main conference is on 25 July 2026 in Jalingo."
   },
   {
-    question: 'When does it start, can I still register?',
-    answer: 'The hackathon runs 25 June – 25 July 2026. Registration is open until seats fill up.'
+    question: "Who can participate?",
+    answer: "Anyone. Developers, students, builders, Web3 enthusiasts and product teams are welcome. Join solo or as a team."
   },
   {
-    question: 'What is your submission date?',
-    answer: 'Project submissions close July 20 2026. Teams will present at the Jalingo conference finale on July 25.'
+    question: "How many participants are expected?",
+    answer: "We target over 200 project submissions in the hackathon. The main conference expects 400+ attendees."
   },
   {
-    question: 'How can I make the most of my participation?',
-    answer: 'Engage with mentors, attend every workshop, collaborate actively, and present your work at the finale.'
+    question: "Is registration free?",
+    answer: "Yes. Both hackathon and conference registration are completely free."
   },
+  {
+    question: "How do I register?",
+    answer: "Go to techx.sandlip.com and fill the form. Registration opens June 1, 2026."
+  },
+  {
+    question: "Do I need to attend in person?",
+    answer: "No. The hackathon is fully virtual. The conference on 25 July is in Jalingo but will be live streamed."
+  },
+  {
+    question: "What are the judging criteria?",
+    answer: "Innovation and originality, technical implementation, user experience, impact potential, open source contribution, and Web3 integration."
+  },
+  {
+    question: "Will there be workshops and mentorship?",
+    answer: "Yes. Workshops, mentorship sessions and office hours run throughout the hackathon."
+  },
+  {
+    question: "How can I become a sponsor or partner?",
+    answer: "Email partnerships@sandlip.com or send a DM on social media."
+  },
+  {
+    question: "I have another question",
+    answer: "Shoot us an email at info@sandlip.com."
+  }
 ]
