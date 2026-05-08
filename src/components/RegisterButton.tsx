@@ -5,11 +5,12 @@ const RegisterButton = ({ buttonClass, label, arrowClass = "py-2.5 px-3.5" }: { 
   const registrationLink = ""
 
   return (
-    <Link href={registrationLink} className="flex items-center group cursor-not-allowed" target="_blank" rel="noopener noreferrer"
+    <Link href={registrationLink} className="flex items-center group cursor-not-allowed"
+      target="_blank" rel="noopener noreferrer"
       title="Registration will open on June 1st, 2026"
-      onClick={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
+      onClick={(event) => {
+        event.preventDefault()
+        event.stopPropagation()
       }}
     >
       <span className={buttonClass}>{label}</span>
