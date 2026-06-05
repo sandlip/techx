@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import LinkButton from '../components/LinkButton'
 import RaisedCard from '../components/RaisedCard'
@@ -25,17 +24,10 @@ const gallery = [
   "https://lh3.googleusercontent.com/d/1EqJz3MOpNvCNU-b2kd43qpSWvt9UXH4d",
 ]
 
-const testimonials = [
-  { name: 'Chinedu Okafor', role: 'Software Engineer',    quote: 'TechX gave me the platform to showcase my skills and connect with amazing mentors. The experience was transformative.',          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80' },
-  { name: 'Amina Bello',    role: 'Product Designer',     quote: 'The mentorship and community support helped me grow professionally. I built connections that last till today.',                  avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80' },
-  { name: 'Ibrahim Sani',   role: 'Blockchain Developer', quote: 'From hackathon to conference, every moment was valuable. The exposure to real-world problems changed my perspective.',          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80' },
-]
-
 const HERO = "https://lh3.googleusercontent.com/d/1rTYMJbARMk4UApXOwvembk9YpXgHJT3K"
 
 export default function HomePage() {
   const [open, setOpen] = useState<number | null>(null)
-  const reg = ""
 
   return (
     <main className="bg-woodsmoke-100">
